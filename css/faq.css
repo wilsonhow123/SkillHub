@@ -1,0 +1,108 @@
+@import url("animation.css");
+
+.faq-main {
+  /* margin-top: 50px; */
+  /* border: 1px solid; */
+  height: 400px;
+  background-image: url("../img/bg-img/gradient\ help\ page.png");
+  background-size: cover;
+  /* background-position: 100% 70%; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.faq-main h1 {
+  font-size: 45px;
+}
+
+.faq-main p {
+  color: grey;
+}
+
+#search-faq {
+  padding: 13px;
+  width: 400px;
+  border: none;
+  box-shadow: 0 0 2px;
+  border-radius: 5px;
+}
+
+.main-questions {
+  /* border: 1px solid red; */
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.question-container {
+  /* border: 1px solid blue; */
+  padding: 20px 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.individual-question {
+  /* border: 1px solid green; */
+  /* border-top: 1px solid grey;
+  border-bottom: 1px solid grey; */
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.individual-question.expand {
+  height: 250px;
+}
+
+.fa-regular {
+  /* border: 1px solid; */
+  width: 100px;
+  height: fit-content;
+  font-size: 24px;
+  color: rgb(55, 106, 200);
+}
+
+.individual-question section {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid; */
+  width: 100%;
+  row-gap: 15px;
+}
+
+.question-header {
+  color: rgb(55, 106, 200);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+
+.expand-icon {
+  /* width: fit-content; */
+  transition: all 0.3s;
+}
+.expand-icon.rotate {
+  color: black;
+  transform: rotate(225deg);
+}
+
+.question-answer {
+  display: none;
+  color: rgb(75, 75, 75);
+  /* border: 1px solid; */
+  width: 85%;
+  animation: fade-in 0.4s;
+}
+.question-answer.active {
+  display: block;
+}

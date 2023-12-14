@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main</title>
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <script src="https://kit.fontawesome.com/3d869d24b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+  <header class="header">
+    <div class="header-left">
+      <img src="img/skillhub-logo.png" alt="">
+    </div>
+    <div class="header-right">
+      <ul class="header-list">
+        <li>
+          <button id="home" onclick="homeButton()"><span>Home</span></button>
+        </li>
+        <li>
+          <button id="course"><span>Courses</span></button>
+        </li>
+        <li>
+          <button id="help" onclick="faqPage()"><span>Help</span></button>
+        </li>
+        <li>
+          <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+        </li>
+        <li>
+          <button id="login">Login</button>
+        </li>
+        <li>
+          <button id="sign-up">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <script src="js/header.js"></script>
+  </header>
+
+  <section class="promotion">
+    <h1>Unlock your Potential <br> with <span>SkillHub</span></h1>
+    <p class="promotion-description">Empowering Minds, Enabling Futures: Embrace Knowledge <br> Unbound on our Community Education Platform.</p>
+    <div class="users">
+      <img src="img/user-icon/user.png" alt="">
+      <div>
+        <span class="user-number">24k+</span>
+        <p class="user-text">Using SkillHub</p>
+      </div>
+    </div>
+    <button id="get-started">Get Started <i class="fa-solid fa-circle-play"></i></button>
+  </section>
+
+  <section class="promotion-2">
+    <div class="promotion-2-left">
+      <h1>For the Community,</h1>
+      <h1 class="second-line">By the Community.</h1>
+    </div>
+    <div class="promotion-2-right">
+      <p>Building bright futures by offering skills-based education for lifelong success and fulfillment.</p>
+      <button id="learn-more" onclick="scrollSection('scroll-here')">Learn More <i class="fa-solid fa-circle-play"></i></button>
+    </div>
+  </section>
+
+  <section class="idea">
+    <div class="idea-left">
+      <i class="fa-solid fa-arrow-up-wide-short"></i>
+      <div class="idea-text">
+        <h3>Incentive-Packed Learning</h3>
+        <p>SkillHub isn't just education; it's a journey filled with rewards. Earn points, top leaderboards, and unlock exclusive perks — scholarships, job interviews. The more you learn, the more you gain.</p>
+      </div>
+    </div>
+    <div class="idea-right">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <div class="idea-text">
+        <h3>Elevate Your Learning Journey on SkillHub's Free and Open-Source Platform</h3>
+        <p >Discover the power of education on SkillHub — a free, open-source platform designed for your learning journey.
+          Join us, where every achievement is a step towards personal and professional success in an inclusive learning environment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="special-features">
+    <h2>Special Features</h2>
+    <div class="feature-types">
+      <div>Open Community</div>
+      <div>Inclusive Learning</div>
+      <div>Leaderboard & Prizes</div>
+      <div>Achieve Certificates</div>
+    </div>
+  </section>
+
+  <section class="popular-courses">
+    <h1>Popular Courses</h1>
+    <input type="text" placeholder="Search for course">
+    <div class="courses">
+      <div class="courses-row-1">
+        <div class="individual-course">
+          <div class="course-top-row">
+            <img src="img/course-img/course-img-1.png" alt="">
+            <div class="course-title">
+              <p id="motivation">Motivation</p>
+              <h2>How to Get <br> Motivated</h2>
+            </div>
+          </div>
+          <p class="course-description">This course explores the psychology of motivation and provides practical tips for staying motivated in various aspect of life. It covers goal setting, overcoming procrastination, and maintaining a positive mindset.</p>
+          <div class="author">
+            <div id="author-profile">
+              <i class="fa-regular fa-user"></i>
+              <p>Emma Johnson</p>
+            </div>
+            <button id="join-now">Join Now</button>
+          </div>
+        </div>
+        <div class="individual-course">
+          <div class="course-top-row">
+            <img src="img/course-img/course-img-2.png" alt="">
+            <div class="course-title">
+              <p id="al">AL/ML</p>
+              <h2>Machine <br> Learning</h2>
+            </div>
+          </div>
+          <p class="course-description">This course provides a broad introduction to machine learning, covering topics such as supervised learning, unsupervised learning, and deep learning. Andrew Ng, is a renowned expert in the field and a professor at Stanford University.</p>
+          <div class="author">
+            <div id="author-profile"">
+              <i class="fa-regular fa-user"></i>
+              <p>Andrew Ng</p>
+            </div>
+            <button id="join-now">Join Now</button>
+          </div>
+        </div>
+        <div class="individual-course">
+          <div class="course-top-row">
+            <img src="img/course-img/course-img-3.png" alt="">
+            <div class="course-title">
+              <p id="finance">Finance</p>
+              <h2>Financial <br> Markets</h2>
+            </div>
+          </div>
+          <p class="course-description">Professor Robert Shiller, a Nobel laureate in economics, teaches this course that covers the basics of financial markets, including stocks, bonds, and derivatives. It provides insights into the functioning of financial systems and the factors influencing market behavior.</p>
+          <div class="author">
+            <div id="author-profile">
+              <i class="fa-regular fa-user"></i>
+              <p>Robert J. Shiiller</p>
+            </div>
+            <button id="join-now">Join Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="courses-row-2">
+        <div class="individual-course">
+          <div class="course-top-row">
+            <img src="img/course-img/course-img-4.png" alt="">
+            <div class="course-title">
+              <p id="psychology">Psychology</p>
+              <h2>Introduction <br> to Psychology</h2>
+            </div>
+          </div>
+          <p class="course-description">This MIT course, taught by Professor Jeremy Wolfe, introduces students to the fundamental principles of psychology. Topics include perception, memory, cognition, and social psychology.</p>
+          <div class="author">
+            <div id="author-profile">
+              <i class="fa-regular fa-user"></i>
+              <p>Jeremy Wolfe</p>
+            </div>
+            <button id="join-now">Join Now</button>
+          </div>
+        </div>
+        <div class="individual-course">
+          <div class="course-top-row">
+            <img src="img/course-img/course-img-5.png" alt="">
+            <div class="course-title">
+              <p id="science">Science</p>
+              <h2>The Science <br> of Well-Being</h2>
+            </div>
+          </div>
+          <p class="course-description">Offered by Yale University, this course, taught by Professor Laurie Santos, explores the science of happiness and well-being. It covers research-backed strategies for improving one's quality of life.</p>
+          <div class="author">
+            <div id="author-profile">
+              <i class="fa-regular fa-user"></i>
+              <p>Laurie Santos</p>
+            </div>
+            <button id="join-now">Join Now</button>
+          </div>
+        </div>
+        <div class="individual-course">
+          <div class="course-top-row">
+            <img src="img/course-img/course-img-6.png" alt="">
+            <div class="course-title">
+              <p id="kids">Kids</p>
+              <h2>Khan <br> Academy Kids</h2>
+            </div>
+          </div>
+          <p class="course-description">Khan Academy Kids is a free, fun, educational course with thousands of activities and books for young children. It covers subjects like reading, math, social-emotional development, and more.</p>
+          <div class="author">
+            <div id="author-profile">
+              <i class="fa-regular fa-user"></i>
+              <p>Khan Academy</p>
+            </div>
+            <button id="join-now">Join Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="view-courses">View All Courses <i class="fa-solid fa-circle-play"></i></button>
+  </section>
+
+  <section class="community">
+    <img src="img/community-img/community.png" alt="">
+    <div class="community-details">
+      <h1>Join Our Community: <br> Share Learn, Grow Together</h1>
+      <div class="community-description">
+        <p>Passionate about teaching? Contribute your expertise, create courses, earn recognition, and inspire learners globally. Join us in fostering collaboration for accessible education. Are you ready to make a meaningful contribution to the world?</p>
+        <span>Join SkillHub's community today!</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="apply-tutor">
+    <h1>Apply as a Tutor</h1>
+    <p>At SkillHub, we believe that learning is a collaborative process.</p>
+    <div class="submit-section">
+      <input type="text" placeholder="Enter your email">
+      <button id="join-tutor">Apply</button>
+    </div>
+  </section>
+
+  <section class="website-rating">
+    <h1>A Skill-Building Journey with SkillHub</h1>
+    <p class="website-rating-description">How SkillHub's Courses Helped Our Users Master New Skills and Advance in Their Careers</p>
+    <div class="user-rating">
+      <div class="individual-rating">
+        <div class="rating-profile">
+          <img src="img/user-icon/user-pic.png" alt="">
+          <div class="name-grade">
+            <p class="name">Tian</p>
+            <p class="grade">Grade 3 Student</p>
+          </div>
+        </div>
+        <div class="stars">
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star-half yellow-star"></i>
+        </div>
+        <p class="individual-description">"SkillHub transformed my learning journey! The platform's user-friendly interface seamlessly connects educational content and skill-building. With a variety of engaging courses, I've acquired valuable skills and knowledge. Highly recommended for a comprehensive learning experience!"</p>
+      </div>
+      <div class="individual-rating">
+        <div class="rating-profile">
+          <img src="img/user-icon/user-pic-2.png" alt="">
+          <div class="name-grade">
+            <p class="name">Max</p>
+            <p class="grade">Grade 1 Student</p>
+          </div>
+        </div>
+        <div class="stars">
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+        </div>
+        <p class="individual-description">"SkillHub enriched my skills and broadened my knowledge significantly. The intuitive design and exceptional course quality make navigation easy. It's a game-changer for personal and professional development, providing a serious yet enjoyable learning journey!"</p>
+      </div>
+      <div class="individual-rating">
+        <div class="rating-profile">
+          <img src="img/user-icon/user-pic-3.png" alt="">
+          <div class="name-grade">
+            <p class="name">James</p>
+            <p class="grade">Grade 5 Student</p>
+          </div>
+        </div>
+        <div class="stars">
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star yellow-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <p class="individual-description">"SkillHub is the go-to platform for upskilling. The seamless integration of courses and resources offers a holistic learning experience. With a diverse range of subjects and a supportive community, SkillHub not only helps acquire new skills but also connects like-minded learners. Kudos for making education accessible and enjoyable!"</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="scroll-here"></section>
+
+  <section class="our-team">
+    <div class="our-team-header">
+      <h1>OUR TEAM</h1>
+      <p>&#183;</p>
+      <h1 class="white-font">OUR TEAM</h1>
+      <p class="white-font">&#183;</p>
+      <h1>OUR TEAM</h1>
+    </div>
+
+    <div class="team-img-container">
+      <div class="individual-team-member">
+        <img src="img/user-icon/Rectangle 49.png" alt="">
+        <p>Lew Wei How</p>
+        <span>Product Manager</span>
+      </div>
+      <div class="individual-team-member blank-top">
+        <img src="img/user-icon/Rectangle 47.png" alt="">
+        <p>Teh Zhong Cheng</p>
+        <span>UI/UX Designer</span>
+      </div>
+      <div class="individual-team-member">
+        <img src="img/user-icon/Rectangle 45.png" alt="">
+        <p>Low Tian Wei</p>
+        <span>Frontend Manager</span>
+      </div>
+      <div class="individual-team-member blank-top">
+        <img src="img/user-icon/Rectangle 48.png" alt="">
+        <p>Scott Hong</p>
+        <span>Backend Manager</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-us">
+    <h1>About Us</h1>
+    <div class="about-us-details">
+      <div class="about-us-description">
+        <p>Welcome to SkillHub, where education knows no limits. We're dedicated to making learning accessible to everyone, offering a diverse range of high-quality courses curated by global educators.</p>
+        <p>Our platform fosters collaboration, bringing learners and teachers together to share, learn, and grow. Whether you're seeking career advancements or exploring passions, Skillhub is your partner on a journey of continous learning. Join our community, where each achievement propels you towards personal and professional fulfillment. Discover the boundless possibilities of education at SkillHub.</p>
+      </div>
+      <img src="img/about-img/about-us-img.png" alt="">
+    </div>
+  </section>
+
+  <section class="donation">
+    <i class="fa-solid fa-up-right-from-square" id="donation-icon"></i>
+    <div class="donation-left">
+      <h1>Fuel Knowledge Today</h1>
+      <p>"Support our mission for free open-source education. Your donation empowers learners globally. Contribute today to break down educational barriers and foster accessible learning for all."</p>
+      <span>Every donation counts. <br> "Thank you for making a difference!"</span>
+    </div>
+    <img src="img/donation-img/Donation img.png" alt="">
+  </section>
+
+  <section class="faq">
+    <div class="faq-left">
+      <h1>Frequently Asked Questions</h1>
+      <p>Haven't found what you're looking for? <br> Try the <a href="faq.html">Help Center</a> or <a href="#">Contact Customer Care</a></p>
+    </div>
+    <div class="faq-right">
+      <div id="q1" class="individual-question" onclick="expand(this)">
+        <div class="one-line">
+          <p>What is SkillHub?</p>
+          <i class="fa-solid fa-plus expand-icon"></i>
+        </div>
+        <!-- <p class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dicta nobis ut adipisci reprehenderit tempora non odit architecto a, possimus libero asperiores ullam suscipit nam doloribus delectus placeat, at necessitatibus.</p> -->
+      </div>
+      <div id="q2" class="individual-question" onclick="expand(this)">
+        <div class="one-line">
+          <p>Is SkillHub entirely free?</p> 
+          <i class="fa-solid fa-plus expand-icon"></i>
+        </div>
+      </div>
+      <div id="q3" class="individual-question" onclick="expand(this)">
+        <div class="two-line">
+          <p>How are contributors selected to share their knowledge on SkillHub?</p>
+          <i class="fa-solid fa-plus expand-icon"></i>
+        </div>
+      </div>
+      <div id="q4" class="individual-question" onclick="expand(this)">
+        <div class="one-line">
+          <p>Where does all donations head towards?</p>
+          <i class="fa-solid fa-plus expand-icon"></i>
+        </div>
+      </div>
+      <div id="q5" class="individual-question" onclick="expand(this)">
+        <div class="two-line">
+          <p>How can I stay updated on new courses and platform updates?</p>
+          <i class="fa-solid fa-plus expand-icon"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="individual-footer-container">
+        <div class="navigation footer-item">
+          <p class="footer-item-title">NAVIGATION</p>
+          <ul>
+            <li>Home</li>
+            <li>Courses</li>
+            <li>Our Team</li>
+            <li>About Us</li>
+            <li>Tutor</li>
+            <li>Donate</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="individual-footer-container">
+        <div class="legal footer-item">
+          <p class="footer-item-title">LEGAL</p>
+          <ul>
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Cookies</li>
+            <li>Licences</li>
+            <li>Settings</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="individual-footer-container">
+        <div class="resources footer-item">
+          <p class="footer-item-title">RESOURCES</p>
+          <ul>
+            <li>FAQs</li>
+            <li>Public Policy</li>
+            <li>Get Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="skillhub">
+      <h2>SkillHub</h2>
+      <p>"SkillHub opens the door to a world of free, open-source education, offering you a passport to limitless knowledge. By joining our dynamic global community, you not only gain access to a wealth of diverse, high-quality courses but also become an integral part of a movement that believes in empowering learning for everyone, everywhere."</p>
+    </section>
+
+    <img src="img/footer-logo.png" alt="">
+
+    <div class="socials">
+      <div class="social-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <p>&#169; 2023 SkillHub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>

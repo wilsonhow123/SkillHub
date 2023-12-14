@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs</title>
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/faq.css">
+  <script src="https://kit.fontawesome.com/3d869d24b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <img src="img/skillhub-logo.png" alt="">
+    </div>
+    <div class="header-right">
+      <ul class="header-list">
+        <li>
+          <button id="home" onclick="homeButton()"><span>Home</span></button>
+        </li>
+        <li>
+          <button id="course"><span>Courses</span></button>
+        </li>
+        <li>
+          <button id="help"><span>Help</span></button>
+        </li>
+        <li>
+          <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+        </li>
+        <li>
+          <button id="login">Login</button>
+        </li>
+        <li>
+          <button id="sign-up">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <script src="js/header.js"></script>
+  </header>
+
+  <section class="faq-main">
+    <h1>Help Center</h1>
+    <p>Search our knowledge base or browse questions below</p>
+    <input type="text" placeholder="Search" id="search-faq">
+  </section>
+
+  <section class="main-questions">
+    <h2>FAQs</h2>
+    <div class="question-container">
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>What is SkillHub?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">SkillHub is a free and open-source education platform that thrives on a volunteer-based community. We provide accessible learning opportunities with a diverse range of high-quality courses contributed by educators globally.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>Are the courses on SkillHub really free?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">Yes, all courses on SkillHub are entirely free. We believe in making education accessible to everyone, and our commitment to open-source learning means that you can explore, learn, and grow without any cost barriers.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>Is there a certification upon course completion?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">Yes, SkillHub provides certificates of completion for certain courses. The availability of certificates depends on the specific course, and details can be found in the course description.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>How to download your certificates?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">Go to your profile and find the "Certificates" section. This is where you can view and manage all the certificates you have earned.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>Can I access SkillHub courses offline?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">Currently, SkillHub primarily operates as an online platform, requiring an internet connection for course access. However, we are exploring options to enhance offline accessibility for learners in the future.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>How can I get support for technical issues or inquiries?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">For technical support or general inquiries, please reach out to our support team via the contact form on our website. We're here to assist you in making your SkillHub experience smooth and enjoyable.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>Are the courses on SkillHub suitable for all skill levels?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">Yes, SkillHub offers courses catering to various skill levels, from beginners to advanced learners. You can filter courses based on your proficiency to find content that matches your current knowledge level.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>How often are new courses added to SkillHub?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">SkillHub regularly updates its course offerings. New courses are added based on community demand, volunteer contributions, and emerging trends in education. Check back frequently to discover the latest additions.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>Are the courses on SkillHub self-paced?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">Yes, the majority of courses on SkillHub are designed to be self-paced, allowing learners to progress through the content at their own speed.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>How does SkillHub ensure the quality of its courses?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">SkillHub maintains a rigorous review process for courses to ensure quality. Courses are often reviewed by subject matter experts and the SkillHub team before being made available to learners.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>Where does the donation funds go towards?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">Donations play a crucial role in sustaining and expanding SkillHub. They are used to maintain the platform, enhance features, and support initiatives that advance our mission of accessible education.</p>
+        </section>
+      </div>
+
+      <hr>
+      <div class="individual-question">
+        <i class="fa-regular fa-file-lines"></i>
+        <section>
+          <div class="question-header">
+            <h3>Are there any prerequisites for being a tutor on SkillHub?</h3>
+            <i class="fa-solid fa-plus expand-icon"></i>
+          </div>
+          <p class="question-answer">While there are no strict prerequisites, a passion for education and a willingness to contribute to the learning community are essential. Apply to become a tutor with the form located in the home page.</p>
+        </section>
+      </div>
+
+      <hr>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="individual-footer-container">
+        <div class="navigation footer-item">
+          <p class="footer-item-title">NAVIGATION</p>
+          <ul>
+            <li>Home</li>
+            <li>Courses</li>
+            <li>Our Team</li>
+            <li>About Us</li>
+            <li>Tutor</li>
+            <li>Donate</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="individual-footer-container">
+        <div class="legal footer-item">
+          <p class="footer-item-title">LEGAL</p>
+          <ul>
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Cookies</li>
+            <li>Licences</li>
+            <li>Settings</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="individual-footer-container">
+        <div class="resources footer-item">
+          <p class="footer-item-title">RESOURCES</p>
+          <ul>
+            <li>FAQs</li>
+            <li>Public Policy</li>
+            <li>Get Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="skillhub">
+      <h2>SkillHub</h2>
+      <p>"SkillHub opens the door to a world of free, open-source education, offering you a passport to limitless knowledge. By joining our dynamic global community, you not only gain access to a wealth of diverse, high-quality courses but also become an integral part of a movement that believes in empowering learning for everyone, everywhere."</p>
+    </section>
+
+    <img src="img/footer-logo.png" alt="">
+
+    <div class="socials">
+      <div class="social-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <p>&#169; 2023 SkillHub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/faq.js"></script>
+</body>
+</html>

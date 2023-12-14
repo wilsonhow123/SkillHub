@@ -1,0 +1,160 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  /* border: 1px solid; */
+  box-shadow: 0 0 2px ;
+  z-index: 10;
+  background-color: white;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-left {
+  /* border: 1px solid blue; */
+  min-width: 150px;
+  max-width: 250px;
+  /* background-color: aqua; */
+  flex: 1;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.header-left img {
+  height: 100%;
+  width: 70%;
+  object-fit: cover;
+  padding-top: 10px;
+}
+
+.header-right {
+  /* border: 1px solid red; */
+  min-width: 500px;
+  max-width: 680px;
+  flex: 1;
+}
+
+.header-list {
+  /* border: 1px solid green; */
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.header-list li {
+  /* border: 1px solid; */
+  width: fit-content;
+  /* height: 35%; */
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* hover shadow here */
+.header-list li button {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 900;
+  border: none;
+  background-color: transparent;
+  /* border: 1px solid green; */
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+#home {
+  color: rgb(255, 97, 97);
+}
+#home:hover {
+  color: white;
+  background-color: rgb(255, 97, 97);
+}
+#course {
+  color: rgb(255, 228, 121);
+}
+#course:hover {
+  color: white;
+  background-color: rgb(255, 228, 121);
+}
+#help {
+  color: rgb(145, 222, 222);
+}
+#help:hover {
+  color: white;
+  background-color: rgb(145, 222, 222);
+}
+#about {
+  color: rgb(188, 120, 255);
+}
+#about:hover {
+  color: white;
+  background-color: rgb(188, 120, 255);
+}
+#login:hover {
+  color: white;
+  background-color: black;
+}
+#sign-up {
+  color: white;
+  background-color: black;
+  padding: 0 25px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+#sign-up:hover {
+  background-color: white;
+  color: black;
+}
+
+.user-login {
+  border: 1px solid yellow;
+}
+
+
+
+
+
+
+
+
+
+
+/* testing here */
+#user-profile {
+  /* border: 1px solid; */
+  display: none;
+}
+
+#user-profile.active {
+  display: flex;
+}
+
+#user-profile img {
+  width: 50px;
+}
+
+.login.hide {
+  display: none;
+}
+
+.sign-up.hide {
+  display: none;
+}
+
+#click-me {
+  margin-top: 100px;
+}

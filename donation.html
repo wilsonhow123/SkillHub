@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donation</title>
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/donation.css">
+  <script src="https://kit.fontawesome.com/3d869d24b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <img src="img/skillhub-logo.png" alt="">
+    </div>
+    <div class="header-right">
+      <ul class="header-list">
+        <li>
+          <button id="home" onclick="homeButton()"><span>Home</span></button>
+        </li>
+        <li>
+          <button id="course"><span>Courses</span></button>
+        </li>
+        <li>
+          <button id="help" onclick="faqPage()"><span>Help</span></button>
+        </li>
+        <li>
+          <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+        </li>
+        <li>
+          <button id="login">Login</button>
+        </li>
+        <li>
+          <button id="sign-up">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <script src="js/header.js"></script>
+  </header>
+
+  <section class="donation">
+    <div class="donation-left">
+      <!-- <img src="img/donation-img/tng.png" alt=""> -->
+    </div>
+
+    <div class="donation-right">
+      <img src="img/donation-img/Donation img.png" alt="" id="container-img">
+      <div class="container">
+        <h2>Make a Donation</h2>
+        <span>Every donation, no matter how big or small, makes a significant difference to our cause. Thank you for doing your part to help.</span>
+        <div class="name-email">
+          <input type="text" placeholder="Your name">
+          <input type="text" placeholder="Your email">
+        </div>
+        <fieldset>
+          <legend>Donation amount</legend>
+          <div class="amount-selection">
+            <div>
+              <input type="radio" id="100" name="amount">
+              <label for="100">RM 100</label>
+            </div>
+            <div>
+              <input type="radio" id="200" name="amount">
+              <label for="200">RM 200</label>
+            </div>
+            <div>
+              <input type="radio" id="300" name="amount">
+              <label for="300">RM 300</label>
+            </div>
+            <div>
+              <input type="radio" id="400" name="amount">
+              <label for="400">RM 400</label>
+            </div>
+            <div class="custom">
+              <input type="radio" id="other" name="amount">
+              <label for="other">Other</label>
+            </div>
+          </div>
+          <input type="text" placeholder="Amount" id="custom-amount-box">
+        </fieldset>
+        <input type="file" id="insert-file">
+        <div class="receive-updates">
+          <input type="checkbox" id="receive-updates">
+          <label for="receive-updates">I would like to receive occasional updates via email</label>
+        </div>
+        <button id="submit-donation">Submit Donation</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="individual-footer-container">
+        <div class="navigation footer-item">
+          <p class="footer-item-title">NAVIGATION</p>
+          <ul>
+            <li>Home</li>
+            <li>Courses</li>
+            <li>Our Team</li>
+            <li>About Us</li>
+            <li>Tutor</li>
+            <li>Donate</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="individual-footer-container">
+        <div class="legal footer-item">
+          <p class="footer-item-title">LEGAL</p>
+          <ul>
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Cookies</li>
+            <li>Licences</li>
+            <li>Settings</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="individual-footer-container">
+        <div class="resources footer-item">
+          <p class="footer-item-title">RESOURCES</p>
+          <ul>
+            <li>FAQs</li>
+            <li>Public Policy</li>
+            <li>Get Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="skillhub">
+      <h2>SkillHub</h2>
+      <p>"SkillHub opens the door to a world of free, open-source education, offering you a passport to limitless knowledge. By joining our dynamic global community, you not only gain access to a wealth of diverse, high-quality courses but also become an integral part of a movement that believes in empowering learning for everyone, everywhere."</p>
+    </section>
+
+    <img src="img/footer-logo.png" alt="">
+
+    <div class="socials">
+      <div class="social-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <p>&#169; 2023 SkillHub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/donation.js"></script>
+</body>
+</html>

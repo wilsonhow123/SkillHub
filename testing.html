@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/general.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <img src="img/skillhub-logo.png" alt="">
+    </div>
+    <div class="header-right">
+      <ul class="header-list">
+        <li>
+          <button id="home" onclick="homeButton()"><span>Home</span></button>
+        </li>
+        <li>
+          <button id="course"><span>Courses</span></button>
+        </li>
+        <li>
+          <button id="help"><span>Help</span></button>
+        </li>
+        <li>
+          <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+        </li>
+        <li class="login">
+          <button id="login">Login</button>
+        </li>
+        <li class="sign-up">
+          <button id="sign-up">Sign Up</button>
+        </li>
+        <li id="user-profile">
+          <img src="img/user-icon/profile.png" alt="">
+        </li>
+      </ul>
+    </div>
+    <script src="js/header.js"></script>
+  </header>
+
+  <button id="click-me" onclick="checkLogInStatus()">Click Me</button>
+</body>
+</html>

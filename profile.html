@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile</title>
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/profile.css">
+  <script src="https://kit.fontawesome.com/3d869d24b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <img src="img/skillhub-logo.png" alt="">
+    </div>
+    <div class="header-right">
+      <ul class="header-list">
+        <li>
+          <button id="home" onclick="homeButton()"><span>Home</span></button>
+        </li>
+        <li>
+          <button id="course"><span>Courses</span></button>
+        </li>
+        <li>
+          <button id="help" onclick="faqPage()"><span>Help</span></button>
+        </li>
+        <li>
+          <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+        </li>
+        <li>
+          <button id="login">Login</button>
+        </li>
+        <li>
+          <button id="sign-up">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+    <script src="js/header.js"></script>
+  </header>
+
+  <div class="container">
+    <section class="profile">
+      <div class="profile-left">
+        <div class="user">
+          <img src="img/user-icon/profile.png" alt="">
+          <p>Username</p>
+          <span>Role</span>
+        </div>
+  
+        <ul class="profile-setting-selections">
+          <li data-selection="view-profile" class="selected">
+            <i class="fa-regular fa-user"></i>
+            <p>View Profile</p>
+          </li>
+          <li data-selection="profile-settings">
+            <i class="fa-solid fa-gear"></i>
+            <p>Profile Settings</p>
+          </li>
+          <li data-selection="password">
+            <i class="fa-solid fa-lock"></i>
+            <p>Password</p>
+          </li>
+          <li data-selection="my-courses">
+            <i class="fa-solid fa-book"></i>
+            <p>My courses</p>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="profile-right">
+        <h1>Your Profile</h1>
+  
+        <div id="setting-content-box">
+          <div class="view-profile">
+            <div>
+              <p>Username</p>
+              <span>@Plum</span>
+            </div>
+            <div>
+              <p>Full Name</p>
+              <span>Low Tian Wei</span>
+            </div>
+            <div>
+              <p>Date of Birth</p>
+              <span>10/03/2004</span>
+            </div>
+            <div>
+              <p>Gender</p>
+              <span>Male</span>
+            </div>
+            <div>
+              <p>Email</p>
+              <span>plum@gmail.com</span>
+            </div>
+            <button id="edit-information" onclick="editInformation()">Edit Information</button>
+          </div>
+
+          <!-- <div class="edit-profile">
+            <div class="question">
+              <label for="username">Username</label>
+              <input type="text" id="username">
+            </div>
+            <div class="question">
+              <label for="full-name">Full Name</label>
+              <input type="text" id="full-name">
+            </div>
+            <div class="question">
+              <label for="dob">Date of Birth</label>
+              <input type="date">
+            </div>
+            <div class="question">
+              <label for="gender">Gender</label>
+              <select name="gender" id="gender">
+                <option value="" selected>Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="null">Prefer not to say</option>
+              </select>
+            </div>
+            <div class="question">
+              <label for="email">Email</label>
+              <input type="text">
+            </div>
+            <div class="edit-profile-buttons">
+              <button id="save-profile">Save</button>
+              <button id="cancel-edit-profile">Cancel</button>
+            </div>
+          </div> -->
+
+          <!-- <div class="profile-settings">
+            <div class="username">
+              <label for="username">Username</label>
+              <span>Your URL: https://www.skillhub/en/user/plum</span>
+              <input type="text" id="username">
+            </div>
+            <fieldset class="privacy">
+              <legend>Privacy</legend>
+              <div>
+                <input type="checkbox" id="visible-profile">
+                <label for="visible-profile">Make my profile visible to everyone on SkillHub</label>
+              </div>
+              <div>
+                <input type="checkbox" id="hide-courses">
+                <label for="hide-courses">Hide the list of completed courses on my profile</label>
+              </div>
+              <div>
+                <input type="checkbox" id="allow-profile-search">
+                <label for="allow-profile-search">Allow my profile to appear in search results</label>
+              </div>
+            </fieldset>
+            <button id="save-profile-settings">Save Changes</button>
+          </div> -->
+
+          <!-- <div class="password">
+            <p>"We've" initiated a password change request for your SkillHub account. A verification email has been sent to <a href="#">plum@gmail.com</a></p>
+            <span>Please check your inbox and follow the instructions to securely update your password. If you haven't received the email, please check your spam folder or request another verification."</span>
+            <button id="reset-password" onclick="">Reset Password</button>
+          </div> -->
+
+          <!-- <div class="my-courses">
+            <h1>My Courses</h1>
+            <ul class="my-courses-selection">
+              <li data-selection="all-courses">All Courses</li>
+              <li data-selection="favourite-courses">Favourites</li>
+              <li data-selection="completed-courses">Completed Courses</li>
+            </ul>
+            <div class="my-individual-courses">
+              <div class="individual-course">
+                <img src="img/course-img/motivation-course.png" alt="">
+                <div class="course-content">
+                  <div class="students-length">
+                    <p>1240 students</p>
+                    <p>40m</p>
+                  </div>
+                  <h3>Motivation: How to get motivated</h3>
+                  <div class="tutor-bookmark">
+                    <p>Emma Johnson</p>
+                    <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="individual-course">
+                <img src="img/course-img/ml-course.png" alt="">
+                <div class="course-content">
+                  <div class="students-length">
+                    <p>10000 students</p>
+                    <p>4h 30m</p>
+                  </div>
+                  <h3>Machine Learning: Regression and Classification</h3>
+                  <div class="tutor-bookmark">
+                    <p>Andrew Ng</p>
+                    <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="individual-course">
+                <img src="img/course-img/financial-course.png" alt="">
+                <div class="course-content">
+                  <div class="students-length">
+                    <p>1290 students</p>
+                    <p>1h 20m</p>
+                  </div>
+                  <h3>Financial Markets: Introduction</h3>
+                  <div class="tutor-bookmark">
+                    <p>Robert J. Shiler</p>
+                    <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="individual-course">
+                <img src="img/course-img/psychology-course.png" alt="">
+                <div class="course-content">
+                  <div class="students-length">
+                    <p>340 students</p>
+                    <p>40m</p>
+                  </div>
+                  <h3>Psychology: Introduction</h3>
+                  <div class="tutor-bookmark">
+                    <p>Jeremy Wolfe</p>
+                    <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="individual-course">
+                <img src="img/course-img/well-being-course.png" alt="">
+                <div class="course-content">
+                  <div class="students-length">
+                    <p>1420 students</p>
+                    <p>2h 30m</p>
+                  </div>
+                  <h3>The Science of Well-Being</h3>
+                  <div class="tutor-bookmark">
+                    <p>Layrie Santos</p>
+                    <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="individual-course">
+                <img src="img/course-img/khan-course.png" alt="">
+                <div class="course-content">
+                  <div class="students-length">
+                    <p>1220 students</p>
+                    <p>3h 20m</p>
+                  </div>
+                  <h3>Khan Academy Kids</h3>
+                  <div class="tutor-bookmark">
+                    <p>Khan Academy</p>
+                    <i class="fa-solid fa-bookmark"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+  
+    <section class="badges">
+      <div class="individual-badge">
+        <img src="img/badges/Group 41.png" alt="">
+        <p>SkillHub Motivation: How to get Motivated</p>
+        <span class="badge-description">SkillHub Education Training and Certificate</span>
+        <div class="badge-rating">
+          <div>
+            <i class="fa-solid fa-chart-simple"></i>
+            <p>Beginner</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-newspaper"></i>
+            <p>Certification</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="individual-badge">
+        <img src="img/badges/Group 42.png" alt="">
+        <p>Machine Learning: Introduction to AI</p>
+        <span class="badge-description">SkillHub Education Training and Certificate</span>
+        <div class="badge-rating">
+          <div>
+            <i class="fa-solid fa-chart-simple"></i>
+            <p>Advance</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-newspaper"></i>
+            <p>Certification</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="individual-badge">
+        <img src="img/badges/Group 43.png" alt="">
+        <p>Financial Markets: Basics of financial markets</p>
+        <span class="badge-description">SkillHub Education Training and Certificate</span>
+        <div class="badge-rating">
+          <div>
+            <i class="fa-solid fa-chart-simple"></i>
+            <p>Intermediate</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-newspaper"></i>
+            <p>Certification</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="individual-badge">
+        <img src="img/badges/Group 44.png" alt="">
+        <p>Introduction to Psychology: Fundamentals of Psychology</p>
+        <span class="badge-description">SkillHub Education Training and Certificate</span>
+        <div class="badge-rating">
+          <div>
+            <i class="fa-solid fa-chart-simple"></i>
+            <p>Beginner</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-newspaper"></i>
+            <p>Certification</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="individual-badge">
+        <img src="img/badges/Group 45.png" alt="">
+        <p>The science of well-being: How to stay positive</p>
+        <span class="badge-description">SkillHub Education Training and Certificate</span>
+        <div class="badge-rating">
+          <div>
+            <i class="fa-solid fa-chart-simple"></i>
+            <p>Beginner</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-newspaper"></i>
+            <p>Certification</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="individual-footer-container">
+        <div class="navigation footer-item">
+          <p class="footer-item-title">NAVIGATION</p>
+          <ul>
+            <li>Home</li>
+            <li>Courses</li>
+            <li>Our Team</li>
+            <li>About Us</li>
+            <li>Tutor</li>
+            <li>Donate</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="individual-footer-container">
+        <div class="legal footer-item">
+          <p class="footer-item-title">LEGAL</p>
+          <ul>
+            <li>Terms</li>
+            <li>Privacy</li>
+            <li>Cookies</li>
+            <li>Licences</li>
+            <li>Settings</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="individual-footer-container">
+        <div class="resources footer-item">
+          <p class="footer-item-title">RESOURCES</p>
+          <ul>
+            <li>FAQs</li>
+            <li>Public Policy</li>
+            <li>Get Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="skillhub">
+      <h2>SkillHub</h2>
+      <p>"SkillHub opens the door to a world of free, open-source education, offering you a passport to limitless knowledge. By joining our dynamic global community, you not only gain access to a wealth of diverse, high-quality courses but also become an integral part of a movement that believes in empowering learning for everyone, everywhere."</p>
+    </section>
+
+    <img src="img/footer-logo.png" alt="">
+
+    <div class="socials">
+      <div class="social-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <p>&#169; 2023 SkillHub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>
