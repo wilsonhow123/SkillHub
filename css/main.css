@@ -264,7 +264,7 @@
 .popular-courses {
   /* border: 1px solid; */
   margin-top: 80px;
-  height: 750px;
+  height: 680px;
   padding: 10px 15px;
   display: flex;
   flex-direction: column;
@@ -298,7 +298,7 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 500px;
+  height: 480px;
   display: flex;
   column-gap: 150px;
   justify-content: center;
@@ -377,7 +377,7 @@
     column-gap: 70px;
   }
   #course1:target ~ .courses {
-    left: 30%;
+    left: 31%;
   }
   #course2:target ~ .courses {
     left: -1.5%;
