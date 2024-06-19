@@ -1,0 +1,264 @@
+body {
+  padding-top: 100px;
+  /* background-color: rgb(192, 192, 192); */
+  background-image: url("../img/bg-img/profile-gradient.png");
+  background-size: cover;
+  background-position: 50%;
+}
+
+.container {
+  box-shadow: 0 0 1px;
+  border-radius: 20px;
+  background-color: white;
+  width: 90%;
+  max-width: 1350px;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 40px 50px 100px 50px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.course-contents {
+  align-self: center;
+  width: 100%;
+  max-width: 1200px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  column-gap: 50px;
+}
+
+@media (max-width: 1000px) {
+  .course-contents {
+    flex-direction: column;
+    row-gap: 50px;
+  }
+}
+
+.content-left {
+  /* border: 1px solid blue; */
+  /* flex: 1; */
+  /* width: 55%; */
+  width: 100%;
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.main-img {
+  border: 1px solid;
+  min-height: 250px;
+  border-radius: 40px;
+}
+
+.teacher-details {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.teacher-details img {
+  border: 1px solid;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.teacher-name {
+  font-size: 18px;
+}
+
+.teacher-name span {
+  color: grey;
+  font-size: 14px;
+}
+
+.course-details {
+  /* border: 1px solid grey; */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  /* width: 700px; */
+}
+
+.details-header {
+  /* border: 1px solid; */
+  padding: 5px;
+  display: flex;
+  column-gap: 40px;
+  font-size: 20px;
+}
+
+.details-header p {
+  cursor: pointer;
+}
+
+.details-header p.selected {
+  color: purple;
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
+.details-dynamic {
+  width: 100%;
+  height: fit-content;
+}
+
+.details-dynamic div {
+  /* border: 1px solid red; */
+  display: none;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 15px 10px;
+}
+
+.details-dynamic div.selected {
+  display: flex;
+}
+
+.details-dynamic p {
+  color: rgb(70, 70, 70);
+  font-size: 14px;
+}
+
+.quiz-container ul {
+  /* border: 1px solid; */
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.quiz-container ul li {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz-container ul li p {
+  font-size: 16px;
+}
+
+.quiz-container ul li button {
+  border: 1px solid black;
+  padding: 10px 20px;
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.quiz-container ul li button:hover {
+  background-color: white;
+  color: black;
+}
+
+.review-container {
+  position: relative;
+}
+
+.review-container ul {
+  min-height: 80px;
+  max-height: 400px;
+  overflow-y: scroll;
+  border:2px solid orange;
+  border-radius: 8px;
+}
+
+.review-container li {
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-input {
+  margin-top: 10px;
+  border: none;
+  border-bottom: 1px solid grey;
+  width: 90%;
+  padding: 10px 5px;
+  float: left;
+}
+
+.review-container .send-review-button {
+  position: absolute;
+  left: 90%;
+  bottom: 25px;
+  font-size: 25px;
+  padding: 2px;
+}
+
+.review-container .send-review-button:hover {
+  cursor: pointer;
+}
+
+.review-message i {
+  color: red;
+}
+
+.content-right {
+  /* border: 2px solid green; */
+  min-width: 250px;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.completion {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.completion h2 {
+  font-size: 20px;
+}
+
+.completion progress {
+  /* width: 90%;
+  margin: 0 auto; */
+  width: 100%;
+}
+
+.completion span {
+  color: rgb(179, 179, 179);
+  font-size: 12px;
+}
+
+.course-completion {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topics {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 20px;
+}
+
+.topics a {
+  text-decoration: none;
+  color: black;
+}
+
+.individual-topic {
+  padding: 12px 10px;
+  /* border: 1px solid; */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.15s all;
+}
+
+.individual-topic:hover {
+  background-color: rgba(198, 198, 198, 0.7);
+}

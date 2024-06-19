@@ -1,17 +1,9 @@
-function scrollSection(sectionId) {
-  const section = document.getElementById(sectionId)
-
-  if (section) {
-    section.scrollIntoView({behavior: 'smooth'});
-  }
-}
-
 const linkButton = document.getElementById("donation-icon")
 linkButton.addEventListener("click", donationPage)
 
 function donationPage() {
   const url = "donation.html";
-  window.open(url)
+  window.location.href = url;
 }
 
 // faq section
@@ -69,4 +61,17 @@ function expand(question) {
   }
 }
 
+// direct to course page
+function course () {
+  const url = "course.html";
+  window.location.href = url;
+}
 
+function apply_tutor () {
+  let url = "applytutor.html";
+  if (!loginned) {
+    alert("Please login to apply as tutor");
+    url = "login.html";
+  }
+  window.location.href = url;
+}

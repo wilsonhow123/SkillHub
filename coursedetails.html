@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Detail</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/coursedetails.css">
+    <script src="https://kit.fontawesome.com/ea1f90633d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+          <img src="img/skillhub-logo.png" alt="">
+        </div>
+        <div class="header-right">
+          <ul class="header-list">
+            <li>
+              <button id="home" onclick="homeButton()"><span>Home</span></button>
+            </li>
+            <li>
+              <button id="course" onclick="coursePage()"><span>Courses</span></button>
+            </li>
+            <li>
+              <button id="help" onclick="faqPage()"><span>Help</span></button>
+            </li>
+            <li>
+              <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+            </li>
+          </ul>
+        </div>
+        <script src="js/header.js"></script>
+      </header>
+
+    <div class="container">
+        <div class="page-grid">
+            <div class="course-image">
+              <!-- js insert course image after receiving php response -->
+            </div>
+            <div class="right-description">
+                <div class="right-grid">
+                    <div class="lecturer-profile">
+                        <img src="img\course-img\course-img-1.png">
+                        <span></span> <!-- js add lecturer name after receiving php response -->
+                    </div>
+                    <div class="detail-top">
+                      <div class="icon-box">
+                        <div class="icon1">
+                          <i class="fa-solid fa-book"></i>
+                        </div>
+                        <div class="icon1-container" id="course-no">
+                            <div class="icon1-detail1">
+                                <span>Course ID</span>
+                            </div>
+                            <div class="icon1-detail2">
+                                <span></span> <!-- js add duration after receiving php response -->
+                            </div>
+                        </div>
+                      </div>
+                      <div class="icon-box">
+                        <div class="icon1">
+                          <i class="fa-solid fa-book"></i>
+                        </div>
+                        <div class="icon1-container" id="lesson">
+                            <div class="icon1-detail1">
+                                <span>LESSONS</span>
+                            </div>
+                            <div class="icon1-detail2">
+                              <span></span> <!-- js add lesson number after receiving php response -->
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="detail-bottom">
+                        <div class="icon2-container" id="total-participator">
+                            <div class="icon2">
+                                <i class="fa-solid fa-user-graduate"></i>
+                            </div>
+                            <div class="icon2-detail1">
+                                <span>Students:</span>
+                                <span class="icon-info"></span>
+                            </div>
+                        </div>
+                        <div class="icon2-container" id="published-date">
+                            <div class="icon2">
+                                <i class="fa-solid fa-upload"></i>
+                            </div>
+                            <div class="icon2-detail1">
+                                <span>Date of Publish:</span>
+                                <span class="icon-info"></span>
+                            </div>
+                        </div>
+                        <div class="icon2-container" id="duration">
+                            <div class="icon2">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div class="icon2-detail1">
+                                <span>Duration:</span>
+                                <span class="icon-info"></span>
+                            </div>
+                        </div>
+                        <div class="icon2-container">
+                            <div class="icon2">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div class="icon2-detail1">
+                                <span>Certificate:</span>
+                                <span class="icon-info">Upon completion of the course</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-description2">
+                <div class="right-title">Quiz</div>
+                <div class="right-info">This course contain quiz to train your understanding.</div>
+                <div class="right-title">PREREQUISITES</div>
+                <div class="right-info">
+                    <ul>
+                        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, temporibus.</li>
+                        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi, temporibus.</li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="right-button1" onclick="enrollCourse()"><i class="fa-solid fa-user-check"></i>Enroll Course</div>
+                    <div class="right-button2"></div>
+                </div>
+            </div>
+            <div class="course-description">
+                <div class="course-title"></div>
+                <div class="course-description1"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/coursedetails.js"></script>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <div class="individual-footer-container">
+          <div class="navigation footer-item">
+            <p class="footer-item-title">NAVIGATION</p>
+            <ul>
+              <li onclick="home()">Home</li>
+              <li onclick="course()">Courses</li>
+              <li onclick="about()">About Us</li>
+              <li onclick="tutor()">Tutor</li>
+              <li onclick="donate()">Donate</li>
+            </ul>
+          </div>
+        </div>
+    
+        <div class="individual-footer-container">
+          <div class="legal footer-item">
+            <p class="footer-item-title">LEGAL</p>
+            <ul>
+              <li onclick="terms()">Terms</li>
+              <li onclick="privacy()">Privacy</li>
+              <li onclick="cookies()">Cookies</li>
+              <li onclick="liciences()">Licences</li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="individual-footer-container">
+          <div class="resources footer-item">
+            <p class="footer-item-title">RESOURCES</p>
+            <ul>
+              <li onclick="faq()">FAQs</li>
+              <li onclick="public_policy()">Public Policy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  
+      <section class="skillhub">
+        <h2>SkillHub</h2>
+        <p>"SkillHub opens the door to a world of free, open-source education, offering you a passport to limitless knowledge. By joining our dynamic global community, you not only gain access to a wealth of diverse, high-quality courses but also become an integral part of a movement that believes in empowering learning for everyone, everywhere."</p>
+      </section>
+  
+      <img src="img/footer-logo.png" alt="">
+  
+      <div class="socials">
+        <div class="social-icons">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-square-x-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+        </div>
+        <p>&#169; 2023 SkillHub. All rights reserved.</p>
+      </div>
+  
+      <script src="js/footer.js"></script>
+    </footer>
+</body>
+</html>

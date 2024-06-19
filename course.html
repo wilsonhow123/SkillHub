@@ -1,15 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses</title>
-  <link rel="stylesheet" href="css/general.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/courses.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/course.css">
+    <script src="https://kit.fontawesome.com/ea1f90633d.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <header class="header">
+    <div class="header-left">
+      <img src="img/skillhub-logo.png" alt="">
+    </div>
+    <div class="header-right">
+      <ul class="header-list">
+        <li>
+          <button id="home" onclick="homeButton()"><span>Home</span></button>
+        </li>
+        <li>
+          <button id="course" onclick="coursePage()"><span>Courses</span></button>
+        </li>
+        <li>
+          <button id="help" onclick="faqPage()"><span>Help</span></button>
+        </li>
+        <li>
+          <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+        </li>
+      </ul>
+    </div>
+    <script src="js/header.js"></script>
+  </header>
+
+  <div class="container">
+    <div class="course-grid">
+      <div class="sidebar">
+        <div class="allcourse">All Courses</div>
+        <div class="filter">
+            <span>Filters</span>
+            <div class="filter-button" onclick="toggleFilterOptions()">
+              <i id="filterIcon" class="fa-solid fa-circle-chevron-down"></i>
+            </div>
+        </div>
+        <div class="filter-options">
+          <span>Duration</span>
+          <div class="duration-list">
+              <ul>
+                <li class="checkbox-container">
+                    <div class="duration-filter" id="duration1" onclick="duration_click(this)"><i class="fa-regular fa-square"></i></div>
+                    <span>Short (less than 1 hour)</span>
+                </li>
+                <li class="checkbox-container">
+                    <div class="duration-filter" id="duration2" onclick="duration_click(this)"><i class="fa-regular fa-square"></i></div>
+                    <span>Medium (1 to 3 hours)</span>
+                </li>
+                <li class="checkbox-container">
+                    <div class="duration-filter" id="duration3" onclick="duration_click(this)"><i class="fa-regular fa-square"></i></div>
+                    <span>Long (more than 3 hours)</span>
+                </li>
+              </ul>
+          </div>
+        </div>
+        <span class="category-title">Categories</span>
+        <div class="categories-list"></div>
+      </div>
+      
+      <div class="title">
+        All Courses
+        <label class="search-box">
+          <i class="fa fa-search"></i>
+          <p>Search Course:</p>
+          <input type="text" class="search-input" placeholder="Enter course's ID or course's name or tutor's name" onkeyup="search_course()"/>
+        </label>
+      </div>
+      <div class="course-container">
+
+      </div>
+      <div class="page">
+        <div class="nav-button" onclick="changePage(-1)"><i class="fa-solid fa-circle-chevron-left"></i></div>
+        <ul class="page-nav">
+          <li class="this-page">1</li>
+        </ul>
+        <div class="nav-button" onclick="changePage(1)"><i class="fa-solid fa-circle-chevron-right"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/course.js"></script>
+    
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="individual-footer-container">
+        <div class="navigation footer-item">
+          <p class="footer-item-title">NAVIGATION</p>
+          <ul>
+            <li onclick="home()">Home</li>
+            <li onclick="course()">Courses</li>
+            <li onclick="about()">About Us</li>
+            <li onclick="tutor()">Tutor</li>
+            <li onclick="donate()">Donate</li>
+          </ul>
+        </div>
+      </div>
   
+      <div class="individual-footer-container">
+        <div class="legal footer-item">
+          <p class="footer-item-title">LEGAL</p>
+          <ul>
+            <li onclick="terms()">Terms</li>
+            <li onclick="privacy()">Privacy</li>
+            <li onclick="cookies()">Cookies</li>
+            <li onclick="liciences()">Licences</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="individual-footer-container">
+        <div class="resources footer-item">
+          <p class="footer-item-title">RESOURCES</p>
+          <ul>
+            <li onclick="faq()">FAQs</li>
+            <li onclick="public_policy()">Public Policy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="skillhub">
+      <h2>SkillHub</h2>
+      <p>"SkillHub opens the door to a world of free, open-source education, offering you a passport to limitless knowledge. By joining our dynamic global community, you not only gain access to a wealth of diverse, high-quality courses but also become an integral part of a movement that believes in empowering learning for everyone, everywhere."</p>
+    </section>
+
+    <img src="img/footer-logo.png" alt="">
+
+    <div class="socials">
+      <div class="social-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <p>&#169; 2023 SkillHub. All rights reserved.</p>
+    </div>
+
+    <script src="js/footer.js"></script>
+  </footer>
 </body>
 </html>

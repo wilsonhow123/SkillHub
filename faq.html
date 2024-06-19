@@ -21,19 +21,13 @@
           <button id="home" onclick="homeButton()"><span>Home</span></button>
         </li>
         <li>
-          <button id="course"><span>Courses</span></button>
+          <button id="course" onclick="coursePage()"><span>Courses</span></button>
         </li>
         <li>
-          <button id="help"><span>Help</span></button>
+          <button id="help" onclick="faqPage()"><span>Help</span></button>
         </li>
         <li>
           <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
-        </li>
-        <li>
-          <button id="login">Login</button>
-        </li>
-        <li>
-          <button id="sign-up">Sign Up</button>
         </li>
       </ul>
     </div>
@@ -43,7 +37,6 @@
   <section class="faq-main">
     <h1>Help Center</h1>
     <p>Search our knowledge base or browse questions below</p>
-    <input type="text" placeholder="Search" id="search-faq">
   </section>
 
   <section class="main-questions">
@@ -203,12 +196,11 @@
         <div class="navigation footer-item">
           <p class="footer-item-title">NAVIGATION</p>
           <ul>
-            <li>Home</li>
-            <li>Courses</li>
-            <li>Our Team</li>
-            <li>About Us</li>
-            <li>Tutor</li>
-            <li>Donate</li>
+            <li onclick="home()">Home</li>
+            <li onclick="course()">Courses</li>
+            <li onclick="about()">About Us</li>
+            <li onclick="tutor()">Tutor</li>
+            <li onclick="donate()">Donate</li>
           </ul>
         </div>
       </div>
@@ -217,12 +209,10 @@
         <div class="legal footer-item">
           <p class="footer-item-title">LEGAL</p>
           <ul>
-            <li>Terms</li>
-            <li>Privacy</li>
-            <li>Cookies</li>
-            <li>Licences</li>
-            <li>Settings</li>
-            <li>Contact</li>
+            <li onclick="terms()">Terms</li>
+            <li onclick="privacy()">Privacy</li>
+            <li onclick="cookies()">Cookies</li>
+            <li onclick="liciences()">Licences</li>
           </ul>
         </div>
       </div>
@@ -231,9 +221,8 @@
         <div class="resources footer-item">
           <p class="footer-item-title">RESOURCES</p>
           <ul>
-            <li>FAQs</li>
-            <li>Public Policy</li>
-            <li>Get Support</li>
+            <li onclick="faq()">FAQs</li>
+            <li onclick="public_policy()">Public Policy</li>
           </ul>
         </div>
       </div>
@@ -255,6 +244,8 @@
       </div>
       <p>&#169; 2023 SkillHub. All rights reserved.</p>
     </div>
+
+    <script src="js/footer.js"></script>
   </footer>
 
   <script src="js/faq.js"></script>

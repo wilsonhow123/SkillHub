@@ -190,6 +190,10 @@
   margin-top: 20px;
 }
 
+.idea .fa-arrow-up-wide-short{
+  background-color: #E67D7D;
+}
+
 .idea-text {
   display: flex;
   flex-direction: column;
@@ -219,9 +223,9 @@
   /* border: 1px solid; */
   height: 100%;
   overflow-y: auto;
-  color: grey;
+  color: #000;
   line-height: 25px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* from here is special features */
@@ -238,7 +242,7 @@
 
 .special-features h2 {
   /* border: 1px solid red; */
-  text-align: center;
+  text-align: justify;
   font-size: 20px;
   width: 20%;
 }
@@ -260,11 +264,17 @@
   text-align: center;
 }
 
+.feature-types div:hover {
+  background-color: #000;
+  color: white;
+  cursor: default;
+}
+
 /* from here is popular courses */
 .popular-courses {
   /* border: 1px solid; */
   margin-top: 80px;
-  height: 680px;
+  height: 600px;
   padding: 10px 15px;
   display: flex;
   flex-direction: column;
@@ -272,8 +282,8 @@
   row-gap: 30px;
   overflow: hidden;
   position: relative;
-
-  background-image: url(../img/bg-img/curvy-line.png);
+  background-image: url(../img/bg-img/yellow-gradient.png);
+  /* background-image: url(../img/bg-img/curvy-line.png); */
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -351,7 +361,7 @@
   font-size: 17px;
 }
 
-@media (min-width: 851px) {
+@media (min-width: 1300px) {
   #course1:target ~ .courses {
     left: 40%;
   }
@@ -370,6 +380,10 @@
   #course6:target ~ .courses {
     left: -64%;
   }
+}
+
+@media (max-width: 1000px) {
+  
 }
 
 @media (max-width: 849px) {
@@ -648,21 +662,20 @@
 }
 
 #join-tutor {
+  width: 150px;
   cursor: pointer;
-  position: absolute;
-  font-size: 10px;
-  right: 6px;
-  top: 7px;
-  padding: 5px 20px;
-  background-color: black;
+  font-size: 15px;
+  padding: 12px;
+  background-color: white;
   /* border: 1px solid black; */
   border: none;
-  color: white;
-  border-radius: 20px;
+  color: black;
+  border-radius: 40px;
   transition: all 0.3s ease;
 }
+
 #join-tutor:hover {
-  opacity: 0.5;
+  background-color: #fff2ad;
 }
 
 /* from here is website rating */
@@ -795,6 +808,7 @@
   /* border: 1px solid; */
   border-top: 1px solid;
   border-bottom: 1px solid;
+  margin-bottom: 50px;
   height: 80px;
   /* padding: 0 50px; */
   font-size: 30px;
@@ -914,6 +928,7 @@
 
 .about-us-description p {
   /* border: 1px solid; */
+  text-align: justify;
   width: 100%;
   font-size: 18px;
 }

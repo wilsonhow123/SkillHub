@@ -1,0 +1,92 @@
+body {
+    background-image: url("../img/bg-img/profile-gradient.png");
+    background-size: cover;
+    background-position: 50%;
+}
+.view-request {
+    margin: 150px auto 100px auto;
+    box-sizing: border-box;
+    padding: 40px 20px 60px 20px;
+    /* border: 1px solid red; */
+    background-color: white;
+    /* background-color: rgba(255, 255, 255, 0.65); */
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 0 2px #B2B2B2;
+    border-radius: 10px;
+    max-height: 800px;
+    width: 85%;
+    overflow: scroll;
+}
+
+.view-request h1 {
+    padding-left: 1%;
+}
+table {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+}
+
+.first-row td{
+    border-bottom: 2px solid;
+    background-color: white;
+    box-shadow: 0 0 2px #B2B2B2;
+    font-weight: 600;
+}
+
+td {
+    width: 12.5%;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0 1px #B2B2B2;
+    text-align: center;
+}
+
+/* .Approve {
+    background-color: greenyellow;
+    font-weight: 500;
+    border: none;
+    padding: 15px;
+    border-radius: 20px;
+} */
+
+.Approve {
+    border: 1px solid #B2B2B2;
+    background-color: white;
+    border-radius: 5px;
+    padding: 12px 25px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.Reject{
+    border: 1px solid #B2B2B2;
+    background-color: white;
+    border-radius: 5px;
+    padding: 12px 30px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+/* .Reject {
+    background-color: red;
+    font-weight: 500;
+    border: none;
+    padding: 15px;
+    border-radius: 20px;
+} */
+
+.Approve:hover{
+    border: 1px solid white;
+    background-color: rgb(13, 141, 34);
+    color: white;
+}
+
+.Reject:hover {
+    border: 1px solid white;
+    background-color: rgb(207, 103, 103);
+    color: white;
+}

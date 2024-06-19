@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Content</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/coursecontent.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/3d869d24b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <img src="img/skillhub-logo.png" alt="">
+    </div>
+    <div class="header-right">
+      <ul class="header-list">
+        <li>
+          <button id="home" onclick="homeButton()"><span>Home</span></button>
+        </li>
+        <li>
+          <button id="course" onclick="coursePage()"><span>Courses</span></button>
+        </li>
+        <li>
+          <button id="help" onclick="faqPage()"><span>Help</span></button>
+        </li>
+        <li>
+          <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+        </li>
+      </ul>
+    </div>
+    <script src="js/header.js"></script>
+  </header>
+
+  <section class="container">
+    <h1>Course Title</h1>
+    <div class="course-contents">
+      <div class="content-left">
+        <img class="main-img" src="#"></img>
+        <div class="teacher-details">
+          <img src="img/user-icon/profile.png" alt="">
+          <div class="teacher-name">
+            <p>Grace</p>
+            <span>UI/UX Designer</span>
+          </div>
+        </div>
+        <div class="course-details">
+          <div class="details-header">
+            <p class="selected">About</p>
+            <p>Quiz</p>
+            <p>Review</p>
+          </div>
+          <div class="details-dynamic">
+            <div class="about-container selected">
+              <h3>About This Course</h3>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt eum sed esse commodi! Sint, corrupti debitis laboriosam quis omnis impedit consectetur, ipsam quasi ad voluptatem explicabo porro qui reiciendis blanditiis!</p>
+            </div>
+            <div class="quiz-container">
+              <h3>Test Yourself Now!</h3>
+              <ul>
+                <!-- <li>
+                  <p>Topic 1</p>
+                  <button>Test Now</button>
+                </li> -->
+              </ul>
+            </div>
+            <div class="review-container">
+              <h3>Review Section</h3>
+              <ul class="review-box">
+
+              </ul>
+              <input class="review-input" type="text" maxlength="255" placeholder="Write your review about the course" required/>
+              <p class="review-message"></p>
+              <i class="fa fa-send-o send-review-button" onclick="review ()"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-right">
+        <div class="completion">
+          <h2>Practice Makes Perfect!</h2>
+          <span class="topic-count"></span>
+          <!-- <progress id="progress-bar" value="60" max="100"></progress>
+          <div class="course-completion">
+            <p>Course Completion</p>
+            <span>3/5</span>
+          </div> -->
+          <p>"Education is the passport to the future, for tomorrow belongs to those who prepare for it today." - Malcolm X</p>
+        </div>
+        <hr>
+        <div class="topics">
+          <h3>Resource</h3>
+          <!-- <a href="#">
+            <div class="individual-topic">1. Topic 1</div>
+          </a> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="individual-footer-container">
+        <div class="navigation footer-item">
+          <p class="footer-item-title">NAVIGATION</p>
+          <ul>
+            <li onclick="home()">Home</li>
+            <li onclick="course()">Courses</li>
+            <li onclick="about()">About Us</li>
+            <li onclick="tutor()">Tutor</li>
+            <li onclick="donate()">Donate</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="individual-footer-container">
+        <div class="legal footer-item">
+          <p class="footer-item-title">LEGAL</p>
+          <ul>
+            <li onclick="terms()">Terms</li>
+            <li onclick="privacy()">Privacy</li>
+            <li onclick="cookies()">Cookies</li>
+            <li onclick="liciences()">Licences</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="individual-footer-container">
+        <div class="resources footer-item">
+          <p class="footer-item-title">RESOURCES</p>
+          <ul>
+            <li onclick="faq()">FAQs</li>
+            <li onclick="public_policy()">Public Policy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="skillhub">
+      <h2>SkillHub</h2>
+      <p>"SkillHub opens the door to a world of free, open-source education, offering you a passport to limitless knowledge. By joining our dynamic global community, you not only gain access to a wealth of diverse, high-quality courses but also become an integral part of a movement that believes in empowering learning for everyone, everywhere."</p>
+    </section>
+
+    <img src="img/footer-logo.png" alt="">
+
+    <div class="socials">
+      <div class="social-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <p>&#169; 2023 SkillHub. All rights reserved.</p>
+    </div>
+
+    <script src="js/footer.js"></script>
+  </footer>
+
+  <script src="js/coursecontent.js"></script>
+</body>
+</html>

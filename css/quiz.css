@@ -1,0 +1,168 @@
+body {
+  padding-top: 100px;
+  /* background-color: rgb(192, 192, 192); */
+  background-image: url("../img/bg-img/profile-gradient.png");
+  background-size: cover;
+  background-position: 50%;
+}
+
+.container {
+  background-color: white;
+  width: 90%;
+  max-width: 1200px;
+  height: fit-content;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 0 1px;
+  padding: 40px 50px 60px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.individual-question {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  width: 85%;
+  max-width: 900px;
+}
+
+.question-title {
+  font-size: 34px;
+}
+
+.choices {
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  width: 100%;
+}
+
+.choice {
+  /* border: 1px solid red; */
+  box-shadow: 0 0 1px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 20px 20px;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.choice:hover {
+  /* opacity: 0.7; */
+  background-color: rgb(218, 218, 218);
+}
+
+.choice.selected {
+  background-color: rgb(193, 193, 193);
+}
+
+.buttons {
+  /* border: 1px solid green; */
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 15px 20px;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.buttons button:hover {
+  background-color: white;
+  color: black;
+}
+
+.popup {
+  backdrop-filter: blur(5px);
+  position: fixed;
+  /* background-color: red; */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  width: 50%;
+  height: fit-content;
+  background-color: white;
+  box-shadow: 0 0 2px;
+  border-radius: 20px;
+  padding: 50px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+}
+
+.popup-box h3 {
+  font-size: 30px;
+}
+
+.percentage {
+  color: green;
+  font-size: 24px;
+}
+
+.msg {
+  font-size: 26px;
+}
+
+.markings {
+  /* border: 1px solid; */
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.marking {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mistakes {
+  border: 1px solid;
+  background-color: rgb(253, 199, 199);
+  color: red;
+}
+
+.correct {
+  color: green;
+  border: 1px solid;
+  background-color: rgb(199, 255, 199);
+}
+
+.back-to-course {
+  margin-top: 20px;
+  padding: 15px 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.back-to-course:hover {
+  color: black;
+  background-color: white;
+}

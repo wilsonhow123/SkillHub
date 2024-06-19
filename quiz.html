@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <script src="https://kit.fontawesome.com/3d869d24b6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <img src="img/skillhub-logo.png" alt="">
+    </div>
+    <div class="header-right">
+      <ul class="header-list">
+        <li>
+          <button id="home" onclick="homeButton()"><span>Home</span></button>
+        </li>
+        <li>
+          <button id="course" onclick="coursePage()"><span>Courses</span></button>
+        </li>
+        <li>
+          <button id="help" onclick="faqPage()"><span>Help</span></button>
+        </li>
+        <li>
+          <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
+        </li>
+      </ul>
+    </div>
+    <script src="js/header.js"></script>
+  </header>
+
+  <section class="container">
+    <h1>Quiz Time!</h1>
+    <div class="individual-question">
+      <h2 class="question-title">1. Question Title</h2>
+    </div>
+  </section>
+
+  <script src="js/quiz.js"></script>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="individual-footer-container">
+        <div class="navigation footer-item">
+          <p class="footer-item-title">NAVIGATION</p>
+          <ul>
+            <li onclick="home()">Home</li>
+            <li onclick="course()">Courses</li>
+            <li onclick="about()">About Us</li>
+            <li onclick="tutor()">Tutor</li>
+            <li onclick="donate()">Donate</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="individual-footer-container">
+        <div class="legal footer-item">
+          <p class="footer-item-title">LEGAL</p>
+          <ul>
+            <li onclick="terms()">Terms</li>
+            <li onclick="privacy()">Privacy</li>
+            <li onclick="cookies()">Cookies</li>
+            <li onclick="liciences()">Licences</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="individual-footer-container">
+        <div class="resources footer-item">
+          <p class="footer-item-title">RESOURCES</p>
+          <ul>
+            <li onclick="faq()">FAQs</li>
+            <li onclick="public_policy()">Public Policy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="skillhub">
+      <h2>SkillHub</h2>
+      <p>"SkillHub opens the door to a world of free, open-source education, offering you a passport to limitless knowledge. By joining our dynamic global community, you not only gain access to a wealth of diverse, high-quality courses but also become an integral part of a movement that believes in empowering learning for everyone, everywhere."</p>
+    </section>
+
+    <img src="img/footer-logo.png" alt="">
+
+    <div class="socials">
+      <div class="social-icons">
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <p>&#169; 2023 SkillHub. All rights reserved.</p>
+    </div>
+
+    <script src="js/footer.js"></script>
+  </footer>
+</body>
+</html>

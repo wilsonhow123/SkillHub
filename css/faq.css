@@ -5,31 +5,35 @@
   /* border: 1px solid; */
   height: 400px;
   background-image: url("../img/bg-img/gradient\ help\ page.png");
-  background-size: cover;
-  /* background-position: 100% 70%; */
-
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  row-gap: 20px;
+  row-gap: 10px;
 }
 
 .faq-main h1 {
   font-size: 45px;
+  font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+  font-family: 'Poppins', sans-serif;
 }
 
 .faq-main p {
   color: grey;
 }
 
-#search-faq {
+/* #search-faq {
   padding: 13px;
   width: 400px;
   border: none;
   box-shadow: 0 0 2px;
   border-radius: 5px;
-}
+} */
 
 .main-questions {
   /* border: 1px solid red; */

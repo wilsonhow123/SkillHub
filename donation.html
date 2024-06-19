@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/donation.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/3d869d24b6.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -21,19 +22,13 @@
           <button id="home" onclick="homeButton()"><span>Home</span></button>
         </li>
         <li>
-          <button id="course"><span>Courses</span></button>
+          <button id="course" onclick="coursePage()"><span>Courses</span></button>
         </li>
         <li>
           <button id="help" onclick="faqPage()"><span>Help</span></button>
         </li>
         <li>
           <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
-        </li>
-        <li>
-          <button id="login">Login</button>
-        </li>
-        <li>
-          <button id="sign-up">Sign Up</button>
         </li>
       </ul>
     </div>
@@ -42,7 +37,7 @@
 
   <section class="donation">
     <div class="donation-left">
-      <!-- <img src="img/donation-img/tng.png" alt=""> -->
+      <img src="img/donation-img/tng.png" alt="Tng">
     </div>
 
     <div class="donation-right">
@@ -50,10 +45,6 @@
       <div class="container">
         <h2>Make a Donation</h2>
         <span>Every donation, no matter how big or small, makes a significant difference to our cause. Thank you for doing your part to help.</span>
-        <div class="name-email">
-          <input type="text" placeholder="Your name">
-          <input type="text" placeholder="Your email">
-        </div>
         <fieldset>
           <legend>Donation amount</legend>
           <div class="amount-selection">
@@ -78,14 +69,18 @@
               <label for="other">Other</label>
             </div>
           </div>
-          <input type="text" placeholder="Amount" id="custom-amount-box">
+          <p class="amount-option-message"></p>
+          <input type="number" placeholder="Amount" id="custom-amount-box" min="0">
+          <p class="custom-amount-message"></p>
         </fieldset>
-        <input type="file" id="insert-file">
-        <div class="receive-updates">
+        <button class="upload-file" onclick="upload_file ()">Upload Transaction Slip</button>
+        <input type="file" id="insert-file" accept="image/*" onchange="receive_file ()" required>
+        <div class="file-content"></div>
+        <!-- <div class="receive-updates">
           <input type="checkbox" id="receive-updates">
           <label for="receive-updates">I would like to receive occasional updates via email</label>
-        </div>
-        <button id="submit-donation">Submit Donation</button>
+        </div> -->
+        <button id="submit-donation" onclick="submit_donation ()">Submit Donation</button>
       </div>
     </div>
   </section>
@@ -96,12 +91,11 @@
         <div class="navigation footer-item">
           <p class="footer-item-title">NAVIGATION</p>
           <ul>
-            <li>Home</li>
-            <li>Courses</li>
-            <li>Our Team</li>
-            <li>About Us</li>
-            <li>Tutor</li>
-            <li>Donate</li>
+            <li onclick="home()">Home</li>
+            <li onclick="course()">Courses</li>
+            <li onclick="about()">About Us</li>
+            <li onclick="tutor()">Tutor</li>
+            <li onclick="donate()">Donate</li>
           </ul>
         </div>
       </div>
@@ -110,12 +104,10 @@
         <div class="legal footer-item">
           <p class="footer-item-title">LEGAL</p>
           <ul>
-            <li>Terms</li>
-            <li>Privacy</li>
-            <li>Cookies</li>
-            <li>Licences</li>
-            <li>Settings</li>
-            <li>Contact</li>
+            <li onclick="terms()">Terms</li>
+            <li onclick="privacy()">Privacy</li>
+            <li onclick="cookies()">Cookies</li>
+            <li onclick="liciences()">Licences</li>
           </ul>
         </div>
       </div>
@@ -124,9 +116,8 @@
         <div class="resources footer-item">
           <p class="footer-item-title">RESOURCES</p>
           <ul>
-            <li>FAQs</li>
-            <li>Public Policy</li>
-            <li>Get Support</li>
+            <li onclick="faq()">FAQs</li>
+            <li onclick="public_policy()">Public Policy</li>
           </ul>
         </div>
       </div>
@@ -148,6 +139,8 @@
       </div>
       <p>&#169; 2023 SkillHub. All rights reserved.</p>
     </div>
+
+    <script src="js/footer.js"></script>
   </footer>
 
   <script src="js/donation.js"></script>

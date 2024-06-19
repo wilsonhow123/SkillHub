@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
@@ -21,7 +22,7 @@
           <button id="home" onclick="homeButton()"><span>Home</span></button>
         </li>
         <li>
-          <button id="course"><span>Courses</span></button>
+          <button id="course" onclick="coursePage()"><span>Courses</span></button>
         </li>
         <li>
           <button id="help" onclick="faqPage()"><span>Help</span></button>
@@ -29,34 +30,165 @@
         <li>
           <button id="about" onclick="scrollSection('scroll-here')"><span>About</span></button>
         </li>
-        <li>
-          <button id="login">Login</button>
-        </li>
-        <li>
-          <button id="sign-up">Sign Up</button>
-        </li>
       </ul>
     </div>
     <script src="js/header.js"></script>
   </header>
 
+  <div class="coverbox" id="publishbox">
+    <div id="closepublishcourse" onclick="close_publish_box()">&#10006</div>
+    <form id="publishcourseform" class="coverinnerbox" autocomplete="off">
+      <h2>Cover Image</h2>
+      <p>Upload an eye-catching cover image that represents your course.</p>
+      <label>
+        <input type="file" class="fileupload requiredinput" name="imagefile" onchange="save_file(0, event)" accept="image/jpeg, image/png" required hidden/>
+        <input type="button" value="Upload Image"  class="uploadbutton button" onclick="file_upload(0)"/>
+        <div class="messagebox">
+            <div class="filemessage defaultmessage"></div>
+            <div class='symbol cancel defaultmessage' onclick="cancel_file(0)"></div>
+        </div>
+        <div class="validationmessage "></div>
+      </label>
+
+      <label for="title">
+          <h2>Cover Title</h2>
+          <input type="text" class="inputbox requiredinput" name="title" id="title" placeholder="Enter your title" required/>
+          <div class="validationmessage"></div>
+      </label>
+      
+      <label for="description">
+          <h2>Cover Description</h2>
+          <input type="text" class="inputbox requiredinput" name="description" id="description" placeholder="Enter your description" required/>
+          <div class="validationmessage"></div>
+      </label>
+      
+      <label for="category">
+          <h2>Cover Category</h2>
+          <select id="category" class="inputbox requiredinput" name="category" required>
+              <option value="">Select a category</option>
+          </select>
+          <div class="validationmessage"></div>
+      </label>
+
+      <label for="duration">
+          <h2>Duration</h2>
+          <input type="number" min="0" id="duration" class="inputbox requiredinput" name="duration" placeholder="Enter the course duration in minutes" required/>
+          <div class="validationmessage"></div>
+      </label>
+
+      <div id="addcontentbox">
+          <div class="chapterbox">
+              <h2 id="chapter1">Chapter 1</h2>
+              <h3>Upload Resource</h3>
+              <lable>
+                <input type="file" class="fileupload requiredinput" name="resource1file" accept=".ppt, .pptx, .txt, .pdf, .doc, .docx, .xlsx, video/*" onchange="save_file(1, event)" required hidden/>
+                <input type="button" value="Upload Resource" class="uploadbutton button" onclick="file_upload(1)"/>
+                <div class="messagebox">
+                    <div class="filemessage defaultmessage"></div>
+                    <div class='symbol cancel defaultmessage' onclick="cancel_file(1)"></div>
+                </div>
+                <div class="validationmessage"></div>
+              </lable>
+
+              <h3>Exercise</h3>
+              <label>
+                <input type="text" class="requiredinput setexercise" oninput="set_exercise(0)" required hidden/>
+                <input type="button" class="button" value="Set your Exercise" onclick="exercise_button(0)"/>
+                <div class="setexercisemessage defaultmessage"></div>
+                <div class="validationmessage"></div>
+              </label>
+              <hr/>
+          </div>
+      </div>
+
+      <div class="adddelete">
+          <input type="button" class="button" onclick="add_chapter()" value="Add Chapter"/>
+          <input type="button" class="button" id="deletechapter" onclick="delete_chapter()" value="Delete Chapter" hidden/>
+      </div>
+
+      <input type="button" class="submitbutton" value="Publish"/>
+    </form>
+  </div>
+
+  <div class="coverbox" id="exercisebox">
+    <div class="coverinnerbox">
+        <div id="closeexercisebutton" onclick="close_exercise_button ()">
+            <i class="fa fa-chevron-circle-left"></i>            
+        </div>
+
+        <h2 id="exercisetitle">Chapter 1 Exercise</h2>
+
+        <label>
+            Exercise Name:
+            <input type="text" class="inputbox defaultexercise" id="exercisename" placeholder="Enter the exercise name" required/>
+            <div id="exercisemessage" class="defaultexercisemessage"></div>
+        </label>
+
+        <div id="addquestioncontent">
+            <div class="questionbox">
+                <label for="question1">
+                    <h3>Question 1</h3>
+                    <input type="text" class="inputbox requiredquestion defaultexercise" id="question1" placeholder="Question 1 Description" required/>
+                    <div class="questionmessage defaultexercisemessage"></div>
+                </label>
+                <label for="question1A">
+                    &emsp;Option A:
+                    <input type="text" class="optionbox questionoption defaultexercise" id="question1A" placeholder="Option A Description"/>
+                </label>
+                <label for="question1B">
+                    &emsp;Option B:
+                    <input type="text" class="optionbox questionoption defaultexercise" id="question1B" placeholder="Option B Description"/>
+                </label>
+                <label for="question1C">
+                    &emsp;Option C:
+                    <input type="text" class="optionbox questionoption defaultexercise" id="question1C" placeholder="Option C Description"/>
+                </label>
+                <label for="question1D">
+                    &emsp;Option D:
+                    <input type="text" class="optionbox questionoption defaultexercise" id="question1D" placeholder="Option D Description"/>
+                </label>
+                <div class="answerbox">
+                    Answer:
+                    <label for="question1answerA" class="answer">
+                        A <input type="radio" id="question1answerA" name="question1answwer"  class="requiredanswer defaultanswer" value="A" required/>
+                    </label>
+                    <label for="question1answerB" class="answer">
+                        B <input type="radio" id="question1answerB" name="question1answwer" class="requiredanswer defaultanswer" value="B" required/>
+                    </label>
+                    <label for="question1answerC" class="answer">
+                        C <input type="radio" id="question1answerC" name="question1answwer" class="requiredanswer defaultanswer" value="C" required/>
+                    </label>
+                    <label for="question1answerD" class="answer">
+                        D <input type="radio" id="question1answerD" name="question1answwer" class="requiredanswer defaultanswer" value="D" required/>
+                    </label>
+                </div>
+                <div class="answermessage defaultexercisemessage"></div>
+            </div>
+        </div>
+
+        <div class="adddelete">
+            <input type="button" class="button" onclick="add_question()" value="Add Question"/>
+            <input type="button" class="button" id="deletequestion" value="Delete Question" onclick="delete_question()" hidden/>
+        </div>
+
+        <input type="submit" class="submitbutton" onclick="save_exercise()" value="Save"/>
+    </div>
+  </div>
+
   <div class="container">
+    <button class="requestBtn">Process Request</button>
     <section class="profile">
       <div class="profile-left">
         <div class="user">
           <img src="img/user-icon/profile.png" alt="">
-          <p>Username</p>
-          <span>Role</span>
+          <p class="Name"></p>
+          <span class="Role"></span>
         </div>
   
         <ul class="profile-setting-selections">
           <li data-selection="view-profile" class="selected">
             <i class="fa-regular fa-user"></i>
             <p>View Profile</p>
-          </li>
-          <li data-selection="profile-settings">
-            <i class="fa-solid fa-gear"></i>
-            <p>Profile Settings</p>
           </li>
           <li data-selection="password">
             <i class="fa-solid fa-lock"></i>
@@ -70,278 +202,344 @@
       </div>
   
       <div class="profile-right">
-        <h1>Your Profile</h1>
-  
         <div id="setting-content-box">
           <div class="view-profile">
-            <div>
-              <p>Username</p>
-              <span>@Plum</span>
-            </div>
+            <h1>Your Profile</h1>
             <div>
               <p>Full Name</p>
-              <span>Low Tian Wei</span>
+              <span class="Name"></span>
             </div>
             <div>
               <p>Date of Birth</p>
-              <span>10/03/2004</span>
+              <span class="DOB"></span>
             </div>
             <div>
               <p>Gender</p>
-              <span>Male</span>
+              <span class="Gender"></span>
+            </div>
+            <div>
+              <p>Country</p>
+              <span class="Country"></span>
             </div>
             <div>
               <p>Email</p>
-              <span>plum@gmail.com</span>
+              <span class="Email"></span>
             </div>
             <button id="edit-information" onclick="editInformation()">Edit Information</button>
           </div>
 
-          <!-- <div class="edit-profile">
-            <div class="question">
-              <label for="username">Username</label>
-              <input type="text" id="username">
-            </div>
-            <div class="question">
-              <label for="full-name">Full Name</label>
-              <input type="text" id="full-name">
-            </div>
-            <div class="question">
-              <label for="dob">Date of Birth</label>
-              <input type="date">
-            </div>
-            <div class="question">
-              <label for="gender">Gender</label>
-              <select name="gender" id="gender">
-                <option value="" selected>Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="null">Prefer not to say</option>
+        <div class="edit-profile">
+          <div class="question">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" placeholder="Full Name" required>
+            <div class="message"></div>
+          </div>
+          <div class="question">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" required>
+            <div class="message"></div>
+          </div>
+          <div class="question">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" required>
+              <option value="" selected>Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <div class="message"></div>
+          </div>
+          <div class="question">
+            <label for="country">
+              <h4>Country</h4>
+              <select name="country" id="country" required>
+                  <option value="">Country</option>
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Albania">Albania</option>
+                  <option value="Algeria">Algeria</option>
+                  <option value="American Samoa">American Samoa</option>
+                  <option value="Andorra">Andorra</option>
+                  <option value="Angola">Angola</option>
+                  <option value="Anguilla">Anguilla</option>
+                  <option value="Antartica">Antarctica</option>
+                  <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Armenia">Armenia</option>
+                  <option value="Aruba">Aruba</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Azerbaijan">Azerbaijan</option>
+                  <option value="Bahamas">Bahamas</option>
+                  <option value="Bahrain">Bahrain</option>
+                  <option value="Bangladesh">Bangladesh</option>
+                  <option value="Barbados">Barbados</option>
+                  <option value="Belarus">Belarus</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Belize">Belize</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Bermuda">Bermuda</option>
+                  <option value="Bhutan">Bhutan</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Bosnia and Herzegowina">Bosnia and Herzegowina</option>
+                  <option value="Botswana">Botswana</option>
+                  <option value="Bouvet Island">Bouvet Island</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                  <option value="Brunei Darussalam">Brunei Darussalam</option>
+                  <option value="Bulgaria">Bulgaria</option>
+                  <option value="Burkina Faso">Burkina Faso</option>
+                  <option value="Burundi">Burundi</option>
+                  <option value="Cambodia">Cambodia</option>
+                  <option value="Cameroon">Cameroon</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Cape Verde">Cape Verde</option>
+                  <option value="Cayman Islands">Cayman Islands</option>
+                  <option value="Central African Republic">Central African Republic</option>
+                  <option value="Chad">Chad</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Christmas Island">Christmas Island</option>
+                  <option value="Cocos Islands">Cocos (Keeling) Islands</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Comoros">Comoros</option>
+                  <option value="Congo">Congo</option>
+                  <option value="Congo">Congo, the Democratic Republic of the</option>
+                  <option value="Cook Islands">Cook Islands</option>
+                  <option value="Costa Rica">Costa Rica</option>
+                  <option value="Cota D'Ivoire">Cote d'Ivoire</option>
+                  <option value="Croatia">Croatia (Hrvatska)</option>
+                  <option value="Cuba">Cuba</option>
+                  <option value="Cyprus">Cyprus</option>
+                  <option value="Czech Republic">Czech Republic</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Djibouti">Djibouti</option>
+                  <option value="Dominica">Dominica</option>
+                  <option value="Dominican Republic">Dominican Republic</option>
+                  <option value="East Timor">East Timor</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Egypt">Egypt</option>
+                  <option value="El Salvador">El Salvador</option>
+                  <option value="Equatorial Guinea">Equatorial Guinea</option>
+                  <option value="Eritrea">Eritrea</option>
+                  <option value="Estonia">Estonia</option>
+                  <option value="Ethiopia">Ethiopia</option>
+                  <option value="Falkland Islands">Falkland Islands (Malvinas)</option>
+                  <option value="Faroe Islands">Faroe Islands</option>
+                  <option value="Fiji">Fiji</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="France Metropolitan">France, Metropolitan</option>
+                  <option value="French Guiana">French Guiana</option>
+                  <option value="French Polynesia">French Polynesia</option>
+                  <option value="French Southern Territories">French Southern Territories</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="Gambia">Gambia</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Ghana">Ghana</option>
+                  <option value="Gibraltar">Gibraltar</option>
+                  <option value="Greece">Greece</option>
+                  <option value="Greenland">Greenland</option>
+                  <option value="Grenada">Grenada</option>
+                  <option value="Guadeloupe">Guadeloupe</option>
+                  <option value="Guam">Guam</option>
+                  <option value="Guatemala">Guatemala</option>
+                  <option value="Guinea">Guinea</option>
+                  <option value="Guinea-Bissau">Guinea-Bissau</option>
+                  <option value="Guyana">Guyana</option>
+                  <option value="Haiti">Haiti</option>
+                  <option value="Heard and McDonald Islands">Heard and Mc Donald Islands</option>
+                  <option value="Holy See">Holy See (Vatican City State)</option>
+                  <option value="Honduras">Honduras</option>
+                  <option value="Hong Kong">Hong Kong</option>
+                  <option value="Hungary">Hungary</option>
+                  <option value="Iceland">Iceland</option>
+                  <option value="India">India</option>
+                  <option value="Indonesia">Indonesia</option>
+                  <option value="Iran">Iran (Islamic Republic of)</option>
+                  <option value="Iraq">Iraq</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Jamaica">Jamaica</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Jordan">Jordan</option>
+                  <option value="Kazakhstan">Kazakhstan</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Kiribati">Kiribati</option>
+                  <option value="Democratic People's Republic of Korea">Korea, Democratic People's Republic of</option>
+                  <option value="Korea">Korea, Republic of</option>
+                  <option value="Kuwait">Kuwait</option>
+                  <option value="Kyrgyzstan">Kyrgyzstan</option>
+                  <option value="Lao">Lao People's Democratic Republic</option>
+                  <option value="Latvia">Latvia</option>
+                  <option value="Lebanon">Lebanon</option>
+                  <option value="Lesotho">Lesotho</option>
+                  <option value="Liberia">Liberia</option>
+                  <option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya</option>
+                  <option value="Liechtenstein">Liechtenstein</option>
+                  <option value="Lithuania">Lithuania</option>
+                  <option value="Luxembourg">Luxembourg</option>
+                  <option value="Macau">Macau</option>
+                  <option value="Macedonia">Macedonia, The Former Yugoslav Republic of</option>
+                  <option value="Madagascar">Madagascar</option>
+                  <option value="Malawi">Malawi</option>
+                  <option value="Malaysia">Malaysia</option>
+                  <option value="Maldives">Maldives</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Malta">Malta</option>
+                  <option value="Marshall Islands">Marshall Islands</option>
+                  <option value="Martinique">Martinique</option>
+                  <option value="Mauritania">Mauritania</option>
+                  <option value="Mauritius">Mauritius</option>
+                  <option value="Mayotte">Mayotte</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Micronesia">Micronesia, Federated States of</option>
+                  <option value="Moldova">Moldova, Republic of</option>
+                  <option value="Monaco">Monaco</option>
+                  <option value="Mongolia">Mongolia</option>
+                  <option value="Montserrat">Montserrat</option>
+                  <option value="Morocco">Morocco</option>
+                  <option value="Mozambique">Mozambique</option>
+                  <option value="Myanmar">Myanmar</option>
+                  <option value="Namibia">Namibia</option>
+                  <option value="Nauru">Nauru</option>
+                  <option value="Nepal">Nepal</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="Netherlands Antilles">Netherlands Antilles</option>
+                  <option value="New Caledonia">New Caledonia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Nicaragua">Nicaragua</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="Niue">Niue</option>
+                  <option value="Norfolk Island">Norfolk Island</option>
+                  <option value="Northern Mariana Islands">Northern Mariana Islands</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Pakistan">Pakistan</option>
+                  <option value="Palau">Palau</option>
+                  <option value="Panama">Panama</option>
+                  <option value="Papua New Guinea">Papua New Guinea</option>
+                  <option value="Paraguay">Paraguay</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Pitcairn">Pitcairn</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Puerto Rico">Puerto Rico</option>
+                  <option value="Qatar">Qatar</option>
+                  <option value="Reunion">Reunion</option>
+                  <option value="Romania">Romania</option>
+                  <option value="Russia">Russian Federation</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option> 
+                  <option value="Saint LUCIA">Saint LUCIA</option>
+                  <option value="Saint Vincent">Saint Vincent and the Grenadines</option>
+                  <option value="Samoa">Samoa</option>
+                  <option value="San Marino">San Marino</option>
+                  <option value="Sao Tome and Principe">Sao Tome and Principe</option> 
+                  <option value="Saudi Arabia">Saudi Arabia</option>
+                  <option value="Senegal">Senegal</option>
+                  <option value="Seychelles">Seychelles</option>
+                  <option value="Sierra">Sierra Leone</option>
+                  <option value="Singapore">Singapore</option>
+                  <option value="Slovakia">Slovakia (Slovak Republic)</option>
+                  <option value="Slovenia">Slovenia</option>
+                  <option value="Solomon Islands">Solomon Islands</option>
+                  <option value="Somalia">Somalia</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="South Georgia">South Georgia and the South Sandwich Islands</option>
+                  <option value="Span">Spain</option>
+                  <option value="SriLanka">Sri Lanka</option>
+                  <option value="St. Helena">St. Helena</option>
+                  <option value="St. Pierre and Miguelon">St. Pierre and Miquelon</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Suriname">Suriname</option>
+                  <option value="Svalbard">Svalbard and Jan Mayen Islands</option>
+                  <option value="Swaziland">Swaziland</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Syria">Syrian Arab Republic</option>
+                  <option value="Taiwan">Taiwan, Province of China</option>
+                  <option value="Tajikistan">Tajikistan</option>
+                  <option value="Tanzania">Tanzania, United Republic of</option>
+                  <option value="Thailand">Thailand</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Tokelau">Tokelau</option>
+                  <option value="Tonga">Tonga</option>
+                  <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                  <option value="Tunisia">Tunisia</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="Turkmenistan">Turkmenistan</option>
+                  <option value="Turks and Caicos">Turks and Caicos Islands</option>
+                  <option value="Tuvalu">Tuvalu</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Ukraine">Ukraine</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="United States">United States</option>
+                  <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                  <option value="Uruguay">Uruguay</option>
+                  <option value="Uzbekistan">Uzbekistan</option>
+                  <option value="Vanuatu">Vanuatu</option>
+                  <option value="Venezuela">Venezuela</option>
+                  <option value="Vietnam">Viet Nam</option>
+                  <option value="Virgin Islands (British)">Virgin Islands (British)</option>
+                  <option value="Virgin Islands (U.S)">Virgin Islands (U.S.)</option>
+                  <option value="Wallis and Futana Islands">Wallis and Futuna Islands</option>
+                  <option value="Western Sahara">Western Sahara</option>
+                  <option value="Yemen">Yemen</option>
+                  <option value="Serbia">Serbia</option>
+                  <option value="Zambia">Zambia</option>
+                  <option value="Zimbabwe">Zimbabwe</option>
               </select>
-            </div>
-            <div class="question">
-              <label for="email">Email</label>
-              <input type="text">
-            </div>
-            <div class="edit-profile-buttons">
-              <button id="save-profile">Save</button>
-              <button id="cancel-edit-profile">Cancel</button>
-            </div>
-          </div> -->
+              <div class="message"></div>
+          </div>
+          <div class="question">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Email" required>
+            <div class="message"></div>
+          </div>
+          <div class="edit-profile-buttons">
+            <button id="save-profile" onclick="save_profile()">Save</button>
+            <button id="cancel-edit-profile" onclick="cancel_edit_profile()">Cancel</button>
+          </div>
+        </div>
 
-          <!-- <div class="profile-settings">
-            <div class="username">
-              <label for="username">Username</label>
-              <span>Your URL: https://www.skillhub/en/user/plum</span>
-              <input type="text" id="username">
-            </div>
-            <fieldset class="privacy">
-              <legend>Privacy</legend>
-              <div>
-                <input type="checkbox" id="visible-profile">
-                <label for="visible-profile">Make my profile visible to everyone on SkillHub</label>
-              </div>
-              <div>
-                <input type="checkbox" id="hide-courses">
-                <label for="hide-courses">Hide the list of completed courses on my profile</label>
-              </div>
-              <div>
-                <input type="checkbox" id="allow-profile-search">
-                <label for="allow-profile-search">Allow my profile to appear in search results</label>
-              </div>
-            </fieldset>
-            <button id="save-profile-settings">Save Changes</button>
-          </div> -->
+        
 
-          <!-- <div class="password">
-            <p>"We've" initiated a password change request for your SkillHub account. A verification email has been sent to <a href="#">plum@gmail.com</a></p>
-            <span>Please check your inbox and follow the instructions to securely update your password. If you haven't received the email, please check your spam folder or request another verification."</span>
-            <button id="reset-password" onclick="">Reset Password</button>
-          </div> -->
+        <div class="password">
+          <div class="password-input">
+            <label for="new-password">New Password</label>
+            <input type="text" placeholder="New Password" id="new-password" minlength="8" maxlength="16" required/>
+            <div class="message"></div>
+          </div>
+          <div class="password-input">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="text" placeholder="Confirmed Password" id="confirm-password" required/>
+            <div class="message"></div>
+          </div>
+          <button id="reset-password" onclick="reset_password()">Reset Password</button>
+        </div>
 
-          <!-- <div class="my-courses">
+        <div class="my-courses">
+          <div class="courseBox">
             <h1>My Courses</h1>
-            <ul class="my-courses-selection">
-              <li data-selection="all-courses">All Courses</li>
-              <li data-selection="favourite-courses">Favourites</li>
-              <li data-selection="completed-courses">Completed Courses</li>
-            </ul>
-            <div class="my-individual-courses">
-              <div class="individual-course">
-                <img src="img/course-img/motivation-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>1240 students</p>
-                    <p>40m</p>
-                  </div>
-                  <h3>Motivation: How to get motivated</h3>
-                  <div class="tutor-bookmark">
-                    <p>Emma Johnson</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/ml-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>10000 students</p>
-                    <p>4h 30m</p>
-                  </div>
-                  <h3>Machine Learning: Regression and Classification</h3>
-                  <div class="tutor-bookmark">
-                    <p>Andrew Ng</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/financial-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>1290 students</p>
-                    <p>1h 20m</p>
-                  </div>
-                  <h3>Financial Markets: Introduction</h3>
-                  <div class="tutor-bookmark">
-                    <p>Robert J. Shiler</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/psychology-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>340 students</p>
-                    <p>40m</p>
-                  </div>
-                  <h3>Psychology: Introduction</h3>
-                  <div class="tutor-bookmark">
-                    <p>Jeremy Wolfe</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/well-being-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>1420 students</p>
-                    <p>2h 30m</p>
-                  </div>
-                  <h3>The Science of Well-Being</h3>
-                  <div class="tutor-bookmark">
-                    <p>Layrie Santos</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/khan-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>1220 students</p>
-                    <p>3h 20m</p>
-                  </div>
-                  <h3>Khan Academy Kids</h3>
-                  <div class="tutor-bookmark">
-                    <p>Khan Academy</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
+            <input type="button" class="publishCourseBtn" value="Publish Course"/>
+          </div>
+          <ul class="my-courses-selection">
+            <li data-selection="all-courses" class="selected">All Courses</li>
+          </ul>
+          <div class="my-individual-courses">
+  
+          </div>
         </div>
       </div>
     </section>
   
-    <section class="badges">
-      <div class="individual-badge">
-        <img src="img/badges/Group 41.png" alt="">
-        <p>SkillHub Motivation: How to get Motivated</p>
-        <span class="badge-description">SkillHub Education Training and Certificate</span>
-        <div class="badge-rating">
-          <div>
-            <i class="fa-solid fa-chart-simple"></i>
-            <p>Beginner</p>
-          </div>
-          <div>
-            <i class="fa-solid fa-newspaper"></i>
-            <p>Certification</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="individual-badge">
-        <img src="img/badges/Group 42.png" alt="">
-        <p>Machine Learning: Introduction to AI</p>
-        <span class="badge-description">SkillHub Education Training and Certificate</span>
-        <div class="badge-rating">
-          <div>
-            <i class="fa-solid fa-chart-simple"></i>
-            <p>Advance</p>
-          </div>
-          <div>
-            <i class="fa-solid fa-newspaper"></i>
-            <p>Certification</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="individual-badge">
-        <img src="img/badges/Group 43.png" alt="">
-        <p>Financial Markets: Basics of financial markets</p>
-        <span class="badge-description">SkillHub Education Training and Certificate</span>
-        <div class="badge-rating">
-          <div>
-            <i class="fa-solid fa-chart-simple"></i>
-            <p>Intermediate</p>
-          </div>
-          <div>
-            <i class="fa-solid fa-newspaper"></i>
-            <p>Certification</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="individual-badge">
-        <img src="img/badges/Group 44.png" alt="">
-        <p>Introduction to Psychology: Fundamentals of Psychology</p>
-        <span class="badge-description">SkillHub Education Training and Certificate</span>
-        <div class="badge-rating">
-          <div>
-            <i class="fa-solid fa-chart-simple"></i>
-            <p>Beginner</p>
-          </div>
-          <div>
-            <i class="fa-solid fa-newspaper"></i>
-            <p>Certification</p>
-          </div>
-        </div>
-      </div>
-  
-      <div class="individual-badge">
-        <img src="img/badges/Group 45.png" alt="">
-        <p>The science of well-being: How to stay positive</p>
-        <span class="badge-description">SkillHub Education Training and Certificate</span>
-        <div class="badge-rating">
-          <div>
-            <i class="fa-solid fa-chart-simple"></i>
-            <p>Beginner</p>
-          </div>
-          <div>
-            <i class="fa-solid fa-newspaper"></i>
-            <p>Certification</p>
-          </div>
-        </div>
-      </div>
+    <h3 id="badge-title">Badges</h3>
+    <section class="badges" id="badge-container">
+
     </section>
   </div>
 
@@ -351,12 +549,11 @@
         <div class="navigation footer-item">
           <p class="footer-item-title">NAVIGATION</p>
           <ul>
-            <li>Home</li>
-            <li>Courses</li>
-            <li>Our Team</li>
-            <li>About Us</li>
-            <li>Tutor</li>
-            <li>Donate</li>
+            <li onclick="home()">Home</li>
+            <li onclick="course()">Courses</li>
+            <li onclick="about()">About Us</li>
+            <li onclick="tutor()">Tutor</li>
+            <li onclick="donate()">Donate</li>
           </ul>
         </div>
       </div>
@@ -365,12 +562,10 @@
         <div class="legal footer-item">
           <p class="footer-item-title">LEGAL</p>
           <ul>
-            <li>Terms</li>
-            <li>Privacy</li>
-            <li>Cookies</li>
-            <li>Licences</li>
-            <li>Settings</li>
-            <li>Contact</li>
+            <li onclick="terms()">Terms</li>
+            <li onclick="privacy()">Privacy</li>
+            <li onclick="cookies()">Cookies</li>
+            <li onclick="liciences()">Licences</li>
           </ul>
         </div>
       </div>
@@ -379,9 +574,8 @@
         <div class="resources footer-item">
           <p class="footer-item-title">RESOURCES</p>
           <ul>
-            <li>FAQs</li>
-            <li>Public Policy</li>
-            <li>Get Support</li>
+            <li onclick="faq()">FAQs</li>
+            <li onclick="public_policy()">Public Policy</li>
           </ul>
         </div>
       </div>
@@ -403,8 +597,11 @@
       </div>
       <p>&#169; 2023 SkillHub. All rights reserved.</p>
     </div>
+
+    <script src="js/footer.js"></script>
   </footer>
 
+  <script src="js/publish.js"></script>
   <script src="js/profile.js"></script>
 </body>
 </html>

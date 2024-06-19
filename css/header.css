@@ -104,10 +104,38 @@
   color: white;
   background-color: rgb(188, 120, 255);
 }
+
+#userprofile img {
+  width: 50px;
+  height: 50px;
+}
+
+.profile-option {
+  position: absolute;
+  top: 90px;
+  right: 2%;
+  width: 150px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-option li {
+  padding: 15px;
+}
+
+.profile-option li div:hover {
+  cursor: pointer;
+}
+
 #login:hover {
   color: white;
   background-color: black;
 }
+
 #sign-up {
   color: white;
   background-color: black;
@@ -115,6 +143,7 @@
   border-radius: 20px;
   border: 1px solid black;
 }
+
 #sign-up:hover {
   background-color: white;
   color: black;
@@ -134,24 +163,16 @@
 
 
 /* testing here */
-#user-profile {
-  /* border: 1px solid; */
-  display: none;
-}
-
-#user-profile.active {
-  display: flex;
-}
 
 #user-profile img {
   width: 50px;
 }
 
-.login.hide {
+#login.hide {
   display: none;
 }
 
-.sign-up.hide {
+#sign-up.hide {
   display: none;
 }
 

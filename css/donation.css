@@ -84,20 +84,6 @@ body {
   max-width: 400px;
 }
 
-.name-email {
-  /* border: 1px solid; */
-  display: flex;
-  column-gap: 20px;
-}
-
-.name-email input {
-  padding: 15px 20px;
-  border-radius: 10px;
-  background-color: rgb(231, 231, 231);
-  border: none;
-  width: 180px;
-}
-
 .container fieldset{
   border: none;
   font-size: 14px;
@@ -120,6 +106,10 @@ body {
   cursor: pointer;
 }
 
+.amount-selection {
+  margin: 20px 0;
+}
+
 #custom-amount-box {
   display: none;
   width: 200px;
@@ -133,11 +123,30 @@ body {
   display: block;
 }
 
-.receive-updates {
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-  font-size: 14px;
+.upload-file {
+  background-color: #AC947C;
+  width: 200px;
+  height: 40px;
+  color: white;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+}
+
+.upload-file:hover, #submit-donation:hover {
+  cursor: pointer;
+}
+
+#insert-file {
+  display: none;
+}
+
+.file-content i, .amount-option-message i, .custom-amount-message i{
+  color: red;
+}
+
+.file-content i:hover {
+  cursor: pointer;
 }
 
 #submit-donation {

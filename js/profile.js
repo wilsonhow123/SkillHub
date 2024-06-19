@@ -1,5 +1,151 @@
-const selectionList = document.querySelector(".profile-setting-selections")
+let res;
+const xhr = new XMLHttpRequest();
+const profileContainer = document.querySelector(".container");
+const userData = document.querySelectorAll(".user p, .user span");
+const selectionList = document.querySelector(".profile-setting-selections");
+let myCourseSelectionList = document.querySelector(".my-courses-selection");
 const container = document.getElementById("setting-content-box");
+const userInfo = document.querySelectorAll(".view-profile span");
+const editProfileInput = document.querySelectorAll(".edit-profile input, .edit-profile select");
+const editProfileMessage = document.querySelectorAll(".edit-profile .message");
+const editPasswordInput = document.querySelectorAll(".password input");
+const editPasswordMessage = document.querySelectorAll(".password .message");
+const requestBtn = document.querySelector(".requestBtn");
+const submitBtn = document.querySelector(".submitbutton[value=Publish]");
+const courseBox = document.querySelector(".my-individual-courses");
+
+// get use info from session
+ document.addEventListener("DOMContentLoaded", () => {
+  xhr.open("POST", "php/central.php");
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send("identification=1");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        // if user loginned already
+        if (xhr.responseText) {
+          res = JSON.parse(xhr.responseText);
+          // show user info
+          display_user_info(res);
+          renderContainer("view-profile");
+          display_course ("all-courses");
+          display_badge();
+        }
+        else {
+          alert("Sorry your session expired! Please login again");
+          window.location.href = "login.html";
+        }
+      }
+    }
+  }
+})
+
+// display user information to user
+function display_user_info(res) {
+  userInfo.forEach((data) => {
+    data.innerHTML = res[data.className];
+  })
+
+  userData.forEach((data) => {
+    data.innerHTML = res[data.className];
+    if (data.className == "Role") {
+      if (res[data.className] != "Student") {
+        publishCourseBtn.classList.toggle("active");
+        publishCourseBtn.onclick = display_publish_form;
+        submitBtn.onclick = publish;
+        myCourseSelectionList.innerHTML += '<li data-selection="published-courses">Published Course</li>';
+        myCourseSelectionList = document.querySelector(".my-courses-selection");
+      }
+      if (res[data.className] == "Admin") {
+        requestBtn.classList.toggle("active");
+        requestBtn.onclick = direct_request;
+      }
+    }
+  })
+}
+
+function display_course (selection) {
+  xhr.open("GET", `php/profile.php?action=${selection}`);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send();
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4) {
+      if (xhr.status == 200) {
+        const course = JSON.parse(xhr.responseText);
+        courseBox.innerHTML = "";
+        if (Object.keys(course).length > 0) {
+          Object.keys(course).forEach((course_id) => {
+            const courseInfo = course[course_id];
+            const div = document.createElement("div");
+            div.className = "individual-course";
+            div.innerHTML = `<img src="${courseInfo["Image_Path"].replace("\\", "")}" alt="${courseInfo["Image_Name"]}">
+                              <div class="course-content">
+                                <div class="students-length">
+                                  <p>${courseInfo["Total_Participator"]} Participator</p>
+                                  <p>${courseInfo["Duration"]}m</p>
+                                </div>
+                                <h3>${courseInfo["Course_Name"]}</h3>
+                                <div class="tutor-bookmark">
+                                  <p>${courseInfo["Name"]}</p>
+                                  <i class="fa-solid fa-bookmark"></i>
+                                </div>
+                              </div>
+                            `
+            div.onclick = function () {
+              const url = `coursedetails.html?courseId=${course_id}`;
+              window.location.href = url;
+            }
+            courseBox.appendChild(div);
+          })
+        }
+        else {
+          const div = document.createElement("div");
+          div.className = "no-individual-course";
+          div.innerHTML = "No Course";
+          courseBox.appendChild(div);
+        }
+      }
+    }
+  }
+}
+
+function display_badge() {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "php/profile.php?action=getBadges", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send();
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      try {
+        const res = JSON.parse(xhr.responseText);
+        const badgeContainer = document.getElementById("badge-container"); //Select badge container
+
+        // Loop through each badge and create HTML for it
+        res.forEach(badge => {
+          const html = `<div class="individual-badge">
+                          <img src="${badge.Badge_Image}" alt="">
+                          <p>${badge.Badge_Type}</p>
+                          <span class="badge-description">${badge.Badge_Description}</span>
+                          <div class="badge-rating">
+                            <div>
+                              <p>${badge.Date_Achieved}</p>
+                            </div>
+                          </div>
+                        </div>`;
+          badgeContainer.insertAdjacentHTML('beforeend', html); // Append the HTML to the container
+        });
+      } catch (error) {
+        console.error("Error parsing badge data:", error);
+      }
+    }
+  };
+}
+
+function direct_request () {
+  window.location.href = "processRequest.html";
+}
 
 selectionList.addEventListener("click", (event) => {
   const listItem = event.target.closest("li");
@@ -14,211 +160,129 @@ selectionList.addEventListener("click", (event) => {
   }
 })
 
-function renderContainer(listItem) {
-  container.innerHTML = ""
-
-  const div = document.createElement("div");
-
-  if (listItem === 'view-profile') {
-    div.classList.add("view-profile");
-    div.innerHTML = `
-    <div>
-      <p>Username</p>
-      <span>@Plum</span>
-    </div>
-    <div>
-      <p>Full Name</p>
-      <span>Low Tian Wei</span>
-    </div>
-    <div>
-      <p>Date of Birth</p>
-      <span>10/03/2004</span>
-    </div>
-    <div>
-      <p>Gender</p>
-      <span>Male</span>
-    </div>
-    <div>
-      <p>Email</p>
-      <span>plum@gmail.com</span>
-    </div>
-    <button id="edit-information" onclick="editInformation()">Edit Information</button>
-    `
-  } else if (listItem === 'profile-settings') {
-    div.classList.add("profile-settings");
-    div.innerHTML = `
-    <div class="username">
-      <label for="username">Username</label>
-      <span>Your URL: https://www.skillhub/en/user/plum</span>
-      <input type="text" id="username">
-    </div>
-    <fieldset class="privacy">
-      <legend>Privacy</legend>
-      <div>
-        <input type="checkbox" id="visible-profile">
-        <label for="visible-profile">Make my profile visible to everyone on SkillHub</label>
-      </div>
-      <div>
-        <input type="checkbox" id="hide-courses">
-        <label for="hide-courses">Hide the list of completed courses on my profile</label>
-      </div>
-      <div>
-        <input type="checkbox" id="allow-profile-search">
-        <label for="allow-profile-search">Allow my profile to appear in search results</label>
-      </div>
-    </fieldset>
-    <button id="save-profile-settings">Save Changes</button>
-    `
-  } else if (listItem === 'password') {
-    div.classList.add("password")
-    div.innerHTML = `
-    <p>We've initiated a password change request for your SkillHub account. A verification email has been sent to <a href="#">plum@gmail.com</a></p>
-    <span>Please check your inbox and follow the instructions to securely update your password. If you haven't received the email, please check your spam folder or request another verification."</span>
-    <button id="reset-password" onclick="">Reset Password</button>
-    `
-  } else if (listItem === 'my-courses') {
-    div.classList.add('my-courses');
-    div.innerHTML = `
-    <div class="my-courses">
-            <h1>My Courses</h1>
-            <ul class="my-courses-selection">
-              <li data-selection="all-courses">All Courses</li>
-              <li data-selection="favourite-courses">Favourites</li>
-              <li data-selection="completed-courses">Completed Courses</li>
-            </ul>
-            <div class="my-individual-courses">
-              <div class="individual-course">
-                <img src="img/course-img/motivation-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>1240 students</p>
-                    <p>40m</p>
-                  </div>
-                  <h3>Motivation: How to get motivated</h3>
-                  <div class="tutor-bookmark">
-                    <p>Emma Johnson</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/ml-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>10000 students</p>
-                    <p>4h 30m</p>
-                  </div>
-                  <h3>Machine Learning: Regression and Classification</h3>
-                  <div class="tutor-bookmark">
-                    <p>Andrew Ng</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/financial-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>1290 students</p>
-                    <p>1h 20m</p>
-                  </div>
-                  <h3>Financial Markets: Introduction</h3>
-                  <div class="tutor-bookmark">
-                    <p>Robert J. Shiler</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/psychology-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>340 students</p>
-                    <p>40m</p>
-                  </div>
-                  <h3>Psychology: Introduction</h3>
-                  <div class="tutor-bookmark">
-                    <p>Jeremy Wolfe</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/well-being-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>1420 students</p>
-                    <p>2h 30m</p>
-                  </div>
-                  <h3>The Science of Well-Being</h3>
-                  <div class="tutor-bookmark">
-                    <p>Layrie Santos</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="individual-course">
-                <img src="img/course-img/khan-course.png" alt="">
-                <div class="course-content">
-                  <div class="students-length">
-                    <p>1220 students</p>
-                    <p>3h 20m</p>
-                  </div>
-                  <h3>Khan Academy Kids</h3>
-                  <div class="tutor-bookmark">
-                    <p>Khan Academy</p>
-                    <i class="fa-solid fa-bookmark"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-    `
+myCourseSelectionList.addEventListener("click", (event) => {
+  const courseListItem = event.target.closest("li");
+  for (const listChild of myCourseSelectionList.children) {
+    listChild.classList.remove("selected")
   }
+  if (courseListItem) {
+    const courseSelection = courseListItem.dataset.selection;
+    courseListItem.classList.toggle("selected");
+    display_course(courseSelection)
+  }
+})
 
-  container.appendChild(div)
+
+
+function renderContainer(listItem) {
+  const boxes = document.querySelectorAll(".view-profile, .edit-profile, .password, .my-courses");
+
+  boxes.forEach((box) => {
+    box.classList.remove("hide");
+    if (!box.className.includes(listItem)) {
+      box.classList.toggle("hide");
+    }
+  })
+
 }
 
 function editInformation() {
-  container.innerHTML = ""
+  renderContainer("edit-profile");
+}
 
-  const div = document.createElement("div")
-  div.classList.add("edit-profile")
-  div.innerHTML = `
-    <div class="question">
-      <label for="username">Username</label>
-      <input type="text" id="username">
-    </div>
-    <div class="question">
-      <label for="full-name">Full Name</label>
-      <input type="text" id="full-name">
-    </div>
-    <div class="question">
-      <label for="dob">Date of Birth</label>
-      <input type="date" id="dob">
-    </div>
-    <div class="question">
-      <label for="gender">Gender</label>
-      <select name="gender" id="gender">
-        <option value="" selected>Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="null">Prefer not to say</option>
-      </select>
-    </div>
-    <div class="question">
-      <label for="email">Email</label>
-      <input type="text">
-    </div>
-    <div class="edit-profile-buttons">
-      <button id="save-profile">Save</button>
-      <button id="cancel-edit-profile" onclick="renderContainer('view-profile')">Cancel</button>
-    </div>
-  `;
-  container.appendChild(div)
+function cancel_edit_profile () {
+  document.querySelector("li[data-selection='view-profile']").click();
+}
+
+function save_profile () {
+  console.log(res)
+  let validation = true;
+
+  editProfileInput.forEach((input, index) => {
+    editProfileMessage[index].innerHTML = "";
+    if (!input.checkValidity()) {
+      validation = false;
+      editProfileMessage[index].innerHTML = `<i class='fa symbol'>&#xf12a</i> ${input.validationMessage}`;
+    }
+  })
+
+  if (validation) {
+
+    userInfo.forEach((data, index) => {
+      res[data.className] = editProfileInput[index].value;
+    })
+
+    xhr.open("POST", "php/profile.php");
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(JSON.stringify(res))
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+          if (xhr.responseText == "success") {
+            alert("Update Profile Success");
+                    
+            display_user_info(res);
+
+            editProfileInput.forEach((input) => {
+              input.value = "";
+            })
+
+            document.querySelector("li[data-selection='view-profile']").click();
+          }
+          else if (xhr.responseText == "expired") {
+            alert("Sorry your session expired! Please login again");
+            window.location.href = "login.html";
+          }
+          else {
+            editProfileMessage[editProfileMessage.length - 1].innerHTML = `<i class='fa symbol'>&#xf12a</i> Email Already Exist`
+          }
+        }
+      }
+    }
+  }
+}
+
+function reset_password () {
+  let validation = true;
+
+  editPasswordInput.forEach((input, index) => {
+    editPasswordMessage[index].innerHTML = "";
+    if (!input.checkValidity()) {
+      validation = false;
+      editPasswordMessage[index].innerHTML = `<i class='fa symbol'>&#xf12a</i> ${input.validationMessage}`;
+    }
+  })
+
+
+  if (validation) {
+    if (editPasswordInput[1].value != editPasswordInput[0].value) {
+      validation = false;
+      editPasswordMessage[1].innerHTML = "<i class='fa symbol'>&#xf12a</i> Confirm password does not match new password";
+    }
+  }
+
+  if (validation) {
+    xhr.open("POST", "php/profile.php");
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send(`action=reset password&newPassword=${editPasswordInput[0].value}`)
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4) {
+        if (xhr.status == 200) {
+          if (xhr.responseText == "reset password success") {
+            alert ("Reset Password Success");
+
+            editPasswordInput.forEach((input) => {
+              input.value = "";
+            })
+          }
+          else {
+            alert("Reset Password Fail");
+          }
+        }
+      }
+    }
+
+  }
+
+
 }
